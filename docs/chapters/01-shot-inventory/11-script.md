@@ -1,4 +1,4 @@
-# Lesson 11 — A Script You Can Run
+# Lesson 1.11 — A Script You Can Run
 
 Your functions work when you call them in Python. A coordinator doesn't write Python: they type a command with a folder name and read the answer. This lesson turns a function into a **script**: a file you run from the terminal, which reads what you typed after the command.
 
@@ -54,4 +54,4 @@ Then add the guard, so running the file calls `main` and exits with its result.
 academy test 1 11
 ```
 
-Next: [Lesson 12 — Project: Shot Inventory](12-project.md).
+Next: [Lesson 1.12 — Project: Shot Inventory](12-project.md).

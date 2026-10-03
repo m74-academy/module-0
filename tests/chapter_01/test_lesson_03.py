@@ -10,7 +10,7 @@ from chapter_01.lesson_03 import is_image, split_frame_name
     ("notes.txt", False), ("exr_notes.txt", False), ("SH020_preview.mov", False),
 ])
 def test_is_image(name: str, expected: bool):
-    """Recognise images by the end of the name, in any case."""
+    """Recognize images by the end of the name, in any case."""
     assert is_image(name) is expected
 
 

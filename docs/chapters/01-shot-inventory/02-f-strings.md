@@ -1,4 +1,4 @@
-# Lesson 2 — Building Names with f-strings
+# Lesson 1.2 — Building Names with f-strings
 
 Before Python can check a folder, it needs to know which names to look for. Those names are built from a few facts: shot, task, version, frame. Get one character wrong, a missing zero or a missing dot, and a perfectly good frame looks "missing".
 
@@ -52,4 +52,4 @@ academy test 1 2
 
 The checks also try frame 0, a five-digit frame, other versions, and `.dpx`.
 
-Next: [Lesson 3 — Splitting a Name into Parts](03-splitting.md).
+Next: [Lesson 1.3 — Splitting a Name into Parts](03-splitting.md).

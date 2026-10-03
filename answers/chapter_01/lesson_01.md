@@ -1,4 +1,4 @@
-# Lesson 1 — Read the folder
+# Lesson 1.1 — Read the folder
 
 Write your answers below each heading, then save this file. Use full filenames
 where they help. Do not write Python. The lesson's self-check explains what to

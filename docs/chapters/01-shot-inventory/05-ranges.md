@@ -1,4 +1,4 @@
-# Lesson 5 — Frame Ranges and List Comprehensions
+# Lesson 1.5 — Frame Ranges and List Comprehensions
 
 A sequence that runs from 1001 to 1004 should have four frames. Before you can say one is missing, you need the full list of what *should* be there. Python's `range()` produces the numbers, and a **list comprehension** turns them into names.
 
@@ -62,4 +62,4 @@ expected_names("SH010_comp_v002", 1001, 1002, ".exr")
 academy test 1 5
 ```
 
-Next: [Lesson 6 — Sets: Finding Missing Frames](06-sets.md).
+Next: [Lesson 1.6 — Sets: Finding Missing Frames](06-sets.md).

@@ -1,4 +1,4 @@
-# Lesson 10 — JSON as Memory
+# Lesson 1.10 — JSON as Memory
 
 A report printed in the terminal is gone when the window closes. A note in a text file is memory for people, but a program can't read "SH010 comp is missing 1003" reliably. **JSON** is memory for people *and* programs: plain text, readable in any editor, with a structure every language can load.
 
@@ -63,4 +63,4 @@ For any data `save_json` can write, `load_json` gives back an equal value.
 academy test 1 10
 ```
 
-Next: [Lesson 11 — A Script You Can Run](11-script.md).
+Next: [Lesson 1.11 — A Script You Can Run](11-script.md).

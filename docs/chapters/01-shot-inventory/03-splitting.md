@@ -1,4 +1,4 @@
-# Lesson 3 — Splitting a Name into Parts
+# Lesson 1.3 — Splitting a Name into Parts
 
 The folder gives you names, not facts. To group files or find gaps, you need the parts back: which shot, which sequence, which frame. Python strings come with **methods** that take text apart.
 
@@ -58,4 +58,4 @@ Return `None` when the name isn't an image or doesn't have at least two dots.
 academy test 1 3
 ```
 
-Next: [Lesson 4 — Numbers from Text](04-numbers.md).
+Next: [Lesson 1.4 — Numbers from Text](04-numbers.md).

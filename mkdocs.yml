@@ -20,6 +20,10 @@ extra_javascript:
 
 nav:
   - Start: index.md
+  - Setup:
+      - Set up your computer: setup/install-uv-and-git.md
+      - Fork, clone, and set up: setup/fork-clone-setup.md
+      - Get course updates: setup/course-updates.md
   - Chapter 1 — Shot Inventory:
       - Overview: chapters/01-shot-inventory/README.md
       - "1.1 Names Carry Data": chapters/01-shot-inventory/01-names-carry-data.md

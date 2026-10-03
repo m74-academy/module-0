@@ -21,7 +21,7 @@ A language model can sound confident about things that aren't true. So it never 
 
 ## The script
 
-Save this as `work/ask.py` in your `module-0` folder:
+Create a folder `work` in your `module-0` folder and save this in it as `ask.py`:
 
 ```python
 """Ask questions about shots.json; the model answers only from the file."""

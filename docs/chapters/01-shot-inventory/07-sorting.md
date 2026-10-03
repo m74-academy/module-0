@@ -1,6 +1,6 @@
-# Lesson 7 — Sorting Frames as Numbers
+# Lesson 1.7 — Sorting Frames as Numbers
 
-A report should list frames in order, and it should be short. Nobody wants to read 200 frame numbers; a coordinator wants `1001-1002, 1004`, where the gap jumps out. This lesson sorts names by the number inside them, and summarises a list of frames.
+A report should list frames in order, and it should be short. Nobody wants to read 200 frame numbers; a coordinator wants `1001-1002, 1004`, where the gap jumps out. This lesson sorts names by the number inside them, and summarizes a list of frames.
 
 ## Sorting with key=
 
@@ -21,7 +21,7 @@ print(sorted(names, key=lambda name: int(name.rsplit(".", 2)[1])))
 
 ## Collapsing runs
 
-To summarise frames, walk through them in order and remember where the current run started. When the next frame isn't one more than the previous, the run has ended.
+To summarize frames, walk through them in order and remember where the current run started. When the next frame isn't one more than the previous, the run has ended.
 
 > **Think:** For `1001, 1002, 1004`, which two values do you need to remember while you walk through the list?
 
@@ -43,4 +43,4 @@ Open `src/chapter_01/lesson_07.py`.
 academy test 1 7
 ```
 
-Next: [Lesson 8 — Dictionaries: Grouping by Sequence](08-grouping.md).
+Next: [Lesson 1.8 — Dictionaries: Grouping by Sequence](08-grouping.md).

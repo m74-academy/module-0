@@ -1,4 +1,4 @@
-# Lesson 9 — Listing a Folder with pathlib
+# Lesson 1.9 — Listing a Folder with pathlib
 
 So far the names were typed into Python. Now they come from a real folder. Python's `pathlib` module turns a path into an object that knows its parts and can ask the computer what's inside.
 
@@ -59,4 +59,4 @@ academy test 1 9
 
 The checks build small folders of their own, with a subfolder, an uppercase `.EXR`, and an empty folder.
 
-Next: [Lesson 10 — JSON as Memory](10-json.md).
+Next: [Lesson 1.10 — JSON as Memory](10-json.md).

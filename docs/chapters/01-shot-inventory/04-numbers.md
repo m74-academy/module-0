@@ -1,4 +1,4 @@
-# Lesson 4 — Numbers from Text
+# Lesson 1.4 — Numbers from Text
 
 Splitting a name gives you text: `"1001"`, `"v002"`. But the questions are about numbers: which frame comes next? Which version is newer? Text can't answer them, so you **convert**.
 
@@ -51,4 +51,4 @@ Open `src/chapter_01/lesson_04.py`.
 academy test 1 4
 ```
 
-Next: [Lesson 5 — Frame Ranges and List Comprehensions](05-ranges.md).
+Next: [Lesson 1.5 — Frame Ranges and List Comprehensions](05-ranges.md).

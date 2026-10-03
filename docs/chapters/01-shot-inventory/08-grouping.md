@@ -1,4 +1,4 @@
-# Lesson 8 — Dictionaries: Grouping by Sequence
+# Lesson 1.8 — Dictionaries: Grouping by Sequence
 
 The folder is one long list of names from several sequences. To check each sequence on its own, you first sort the names into groups: all the `SH010_comp_v002` frames together, all the `SH020_comp_v001` frames together. A **dictionary** maps each group's name to its contents.
 
@@ -31,7 +31,7 @@ print(groups)
 
 Open `src/chapter_01/lesson_08.py`.
 
-**`group_by_sequence(names)`** returns a dict from sequence name to its frame numbers, **sorted**. Only image names of the form `SEQUENCE.FRAME.ext` count; skip everything else, such as `notes.txt` and `SH020_preview.mov`. You can reuse your Lesson 3 function: `from chapter_01.lesson_03 import split_frame_name`.
+**`group_by_sequence(names)`** returns a dict from sequence name to its frame numbers, **sorted**. Only image names of the form `SEQUENCE.FRAME.ext` count; skip everything else, such as `notes.txt` and `SH020_preview.mov`. You can reuse your Lesson 1.3 function: `from chapter_01.lesson_03 import split_frame_name`.
 
 ```text
 group_by_sequence(["SH010_comp_v002.1002.exr", "notes.txt", "SH010_comp_v002.1001.exr"])
@@ -42,4 +42,4 @@ group_by_sequence(["SH010_comp_v002.1002.exr", "notes.txt", "SH010_comp_v002.100
 academy test 1 8
 ```
 
-Next: [Lesson 9 — Listing a Folder with pathlib](09-folders.md).
+Next: [Lesson 1.9 — Listing a Folder with pathlib](09-folders.md).

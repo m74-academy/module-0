@@ -1,4 +1,4 @@
-# Lesson 6 — Sets: Finding Missing Frames
+# Lesson 1.6 — Sets: Finding Missing Frames
 
 You have the frames that *should* be there and the frames that *are* there. The question "which are missing?" is a comparison of two groups, and Python has a type made for it: the **set**.
 
@@ -51,4 +51,4 @@ Open `src/chapter_01/lesson_06.py`.
 academy test 1 6
 ```
 
-Next: [Lesson 7 — Sorting Frames as Numbers](07-sorting.md).
+Next: [Lesson 1.7 — Sorting Frames as Numbers](07-sorting.md).

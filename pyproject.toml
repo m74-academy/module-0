@@ -1,0 +1,43 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "m74-academy-module-0"
+version = "0.1.0"
+description = "M74 Academy Module 0: a free introduction"
+requires-python = ">=3.10"
+dependencies = [
+    "pytest>=8",
+]
+
+[dependency-groups]
+docs = ["zensical==0.0.64"]
+
+[tool.academy]
+# Read by the academy command (m74-academy-cli, installed with uv tool install).
+course-repo = "m74-academy/module-0"
+written = ["1.1"]
+
+[tool.academy.chapters]
+1 = [
+    "Names Carry Data",
+    "Building Names with f-strings",
+    "Splitting a Name into Parts",
+    "Numbers from Text",
+    "Frame Ranges and List Comprehensions",
+    "Sets: Finding Missing Frames",
+    "Sorting Frames as Numbers",
+    "Dictionaries: Grouping by Sequence",
+    "Listing a Folder with pathlib",
+    "JSON as Memory",
+    "A Script You Can Run",
+    "Project: Shot Inventory",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["chapter_01*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

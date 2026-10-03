@@ -1,0 +1,6 @@
+/* Keyboard access for the narrow-screen navigation (academy-bgf.11). */
+
+/* The single-palette radio is invisible but was still a Tab stop. */
+.md-option {
+  visibility: hidden;
+}

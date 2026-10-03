@@ -1,0 +1,48 @@
+site_name: M74 Academy · Module 0
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: cyan
+  features:
+    - navigation.sections
+    - navigation.indexes
+
+extra_css:
+  - assets/keyboard-nav.css
+
+extra_javascript:
+  - assets/keyboard-nav.js
+
+nav:
+  - Start: index.md
+  - Chapter 1 — Shot Inventory:
+      - Overview: chapters/01-shot-inventory/README.md
+      - "1.1 Names Carry Data": chapters/01-shot-inventory/01-names-carry-data.md
+      - "1.2 Building Names with f-strings": chapters/01-shot-inventory/02-f-strings.md
+      - "1.3 Splitting a Name into Parts": chapters/01-shot-inventory/03-splitting.md
+      - "1.4 Numbers from Text": chapters/01-shot-inventory/04-numbers.md
+      - "1.5 Frame Ranges and List Comprehensions": chapters/01-shot-inventory/05-ranges.md
+      - "1.6 Sets: Finding Missing Frames": chapters/01-shot-inventory/06-sets.md
+      - "1.7 Sorting Frames as Numbers": chapters/01-shot-inventory/07-sorting.md
+      - "1.8 Dictionaries: Grouping by Sequence": chapters/01-shot-inventory/08-grouping.md
+      - "1.9 Listing a Folder with pathlib": chapters/01-shot-inventory/09-folders.md
+      - "1.10 JSON as Memory": chapters/01-shot-inventory/10-json.md
+      - "1.11 A Script You Can Run": chapters/01-shot-inventory/11-script.md
+      - "1.12 Project: Shot Inventory": chapters/01-shot-inventory/12-project.md
+      - "Extension: Ask Your Inventory": chapters/01-shot-inventory/extension-ask.md
+  - Glossary: glossary.md
+
+markdown_extensions:
+  - tables
+  - toc:
+      permalink: true
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences

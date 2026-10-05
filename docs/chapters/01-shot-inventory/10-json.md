@@ -58,10 +58,6 @@ True
 
 `with` closes the file when the block ends, even if something goes wrong. To read, open the file without `"w"`.
 
-![Save shot data as JSON, close Python, inspect the file, and load the same data in a new Python process.](../../assets/json-loop.gif)
-
-The recording runs the example in two separate Python processes. The first closes after saving; the second loads the file without needing the first process's variables.
-
 !!! question "Think"
 
     Why is a JSON file a better place for the inventory than the terminal output, even if the text looks similar?

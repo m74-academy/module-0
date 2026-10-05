@@ -5,6 +5,12 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.2] — 2026-10-05
+
+### Changed
+
+- Lesson 1.10 and the capstone no longer show a terminal recording; their worked example and sample report say the same.
+
 ## [0.2.1] — 2026-10-05
 
 ### Changed

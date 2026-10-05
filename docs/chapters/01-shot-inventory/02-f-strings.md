@@ -1,3 +1,10 @@
+---
+icon: lucide/book-open
+tags:
+  - f-string
+  - Frame padding
+---
+
 # Lesson 1.2 — Building Names with f-strings
 
 Before Python can check a folder, it needs to know which names to look for. Those names are built from a few facts: shot, task, version, frame. Get one character wrong, a missing zero or a missing dot, and a perfectly good frame looks "missing".
@@ -30,26 +37,30 @@ SH010_comp_v002.0007.exr
 
 The width is a minimum: `f"{12345:04d}"` gives `12345`. Python never cuts a number.
 
-> **Think:** Without padding, would `SH010_comp_v002.7.exr` and `SH010_comp_v002.0007.exr` be the same file?
+!!! question "Think"
 
-<details markdown="1"><summary>Answer</summary>
+    Without padding, would `SH010_comp_v002.7.exr` and `SH010_comp_v002.0007.exr` be the same file?
 
-No. To a computer they are two different names. A tool looking for `0007` doesn't find `7`, and reports the frame as missing even though the image is there.
+??? success "Answer"
 
-</details>
+    No. To a computer they are two different names. A tool looking for `0007` doesn't find `7`, and reports the frame as missing even though the image is there.
 
 ## Assignment
 
 Open `src/chapter_01/lesson_02.py`.
 
-**1. `frame_filename(shot, task, version, frame, extension)`**: `version` and `frame` are numbers. Pad the version to 3 digits and the frame to 4. `frame_filename("SH010", "comp", 2, 1001, ".exr")` returns `"SH010_comp_v002.1001.exr"`.
+**1. `frame_filename(shot, task, version, frame, extension)`**: `version` and `frame` are numbers. Pad the version to 3 digits and the frame to 4.
 
-**2. `sequence_name(shot, task, version)`**: the part every frame of a sequence shares. `sequence_name("SH010", "comp", 2)` returns `"SH010_comp_v002"`.
+> Expected: `frame_filename("SH010", "comp", 2, 7, ".exr")` → `"SH010_comp_v002.0007.exr"`
+
+**2. `sequence_name(shot, task, version)`**: the part every frame of a sequence shares.
+
+> Expected: `sequence_name("SH010", "comp", 2)` → `"SH010_comp_v002"`
+
+Check your work:
 
 ```console
 academy test 1 2
 ```
 
-The checks also try frame 0, a five-digit frame, other versions, and `.dpx`.
-
-Next: [Lesson 1.3 — Splitting a Name into Parts](03-splitting.md).
+The checks also try frame 0, a five-digit frame, other versions, and `.dpx`. A check fails? See [when a check fails](../../setup/fork-clone-setup.md#when-a-check-fails).

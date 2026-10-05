@@ -1,3 +1,9 @@
+---
+icon: lucide/book-open
+tags:
+  - Set
+---
+
 # Lesson 1.6 — Sets: Finding Missing Frames
 
 You have the frames that *should* be there and the frames that *are* there. The question "which are missing?" is a comparison of two groups, and Python has a type made for it: the **set**.
@@ -31,13 +37,13 @@ print(sorted(found - expected))
 
 `expected - found` is what should be there and isn't: **missing**. `found - expected` arrived without being expected: **extra**. `&` gives what's in both.
 
-> **Think:** The folder has four files and four were expected. Can a frame still be missing?
+!!! question "Think"
 
-<details markdown="1"><summary>Answer</summary>
+    The folder has four files and four were expected. Can a frame still be missing?
 
-Yes, exactly as above: frame 1003 is missing and 1005 is extra, and the counts are equal. Comparing counts hides both problems; comparing sets finds them.
+??? success "Answer"
 
-</details>
+    Yes, exactly as above: frame 1003 is missing and 1005 is extra, and the counts are equal. Comparing counts hides both problems; comparing sets finds them.
 
 ## Assignment
 
@@ -45,10 +51,14 @@ Open `src/chapter_01/lesson_06.py`.
 
 **1. `missing_frames(expected, found)`**: the sorted list of frames in `expected` that aren't in `found`. Both arguments are lists and may contain duplicates.
 
+> Expected: `missing_frames([1001, 1002, 1003, 1004], [1001, 1002, 1004, 1005])` → `[1003]`
+
 **2. `extra_frames(expected, found)`**: the sorted list of frames in `found` that aren't in `expected`.
+
+> Expected: `extra_frames([], [9, 7, 7])` → `[7, 9]`
+
+Check your work:
 
 ```console
 academy test 1 6
 ```
-
-Next: [Lesson 1.7 — Sorting Frames as Numbers](07-sorting.md).

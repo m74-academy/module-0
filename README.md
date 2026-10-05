@@ -8,7 +8,7 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
 ## Start here
 
-1. **Install the tools**, once: [uv](https://docs.astral.sh/uv/getting-started/installation/), [Git](https://git-scm.com/downloads), the [GitHub CLI](https://cli.github.com/) (then run `gh auth login`), and [VS Code](https://code.visualstudio.com/). Step by step, with every system's commands: [Set up your computer](docs/setup/install-uv-and-git.md). Then install the course command:
+1. **Install the tools**, once: [`uv`](https://docs.astral.sh/uv/getting-started/installation/), [Git](https://git-scm.com/downloads), the [GitHub CLI](https://cli.github.com/) (then run `gh auth login`), and [VS Code](https://code.visualstudio.com/). Step by step, with every system's commands: [Install the software](docs/setup/install-uv-and-git.md). Then install the course command:
 
    ```console
    uv tool install git+https://github.com/m74-academy/academy-cli
@@ -22,7 +22,7 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
    This creates your fork on GitHub, downloads it into a `module-0` folder, and links it to the course for updates. Your fork is public, like this repository; see [Use terms](#use-terms).
 
-3. **Open the folder** in VS Code (**File → Open Folder** → `module-0`), then **Terminal → New Terminal**, and install the project:
+3. **Open the folder** in VS Code (**File → Open Folder** → `module-0`), click **Install** when it offers the recommended extensions, then **Terminal → New Terminal**, and install the project:
 
    ```console
    uv sync --locked
@@ -38,34 +38,25 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
    academy test 1 2
    ```
 
-   It fails until you solve the lesson; that is expected. Lesson 1.1 is written: `academy test 1 1` names the file to write in. From Lesson 1.2 on, you write functions in `src/chapter_01/`.
+   It fails until you solve the lesson; that is expected. Lesson 1.1 is reading only, with nothing to check. From Lesson 1.2 on, you write functions in `src/chapter_01/`.
 
 `academy --help` lists every command.
 
 ## How a lesson works
 
-Each lesson page explains one idea with an example you can run, then gives you a function to write in `src/chapter_01/lesson_NN.py`. The file has the function's name and a one-line description; you replace `pass` with your code. `academy test 1 NN` runs the lesson's checks and tells you which case failed and what your function returned. Fix, run again, and move on when it passes. To run a worked example, paste it into `uv run python` in the `module-0` folder, or save it in a file and run `uv run python FILE`. The checks include cases the lesson doesn't show, so a passing function works, not just the example.
+Each lesson page explains one idea with an example you can run, then gives you a function to write in `src/chapter_01/lesson_NN.py`. The file has the function's name and a one-line description; you replace `pass` with your code. `academy test 1 NN` runs the lesson's checks and tells you which case failed and what your function returned. Fix, run again, and move on when it passes. To try an example or your own function, [run Python](docs/setup/fork-clone-setup.md#run-python) through `uv` in the `module-0` folder. The checks include cases the lesson doesn't show, so a passing function works, not just the example.
 
 ## Course contents
 
-[Chapter 1 — Shot Inventory](docs/chapters/01-shot-inventory/README.md): names that carry data, building and splitting names, numbers in text, ranges, sets, sorting, dictionaries, folders, JSON, a runnable script, and the project. An optional extension asks questions about your inventory with an AI model you connect yourself.
+[Chapter 1 — Shot Inventory](docs/chapters/01-shot-inventory/README.md): names that carry data, building and splitting names, numbers in text, ranges, sets, sorting, dictionaries, folders, JSON, a runnable script, and the project.
 
 ## Updates
 
-Commit your work, then update:
-
-```console
-git add -A
-git commit -m "Save my work"
-academy update
-git push
-```
-
-The [changelog](CHANGELOG.md) lists what each release changes. If an update stops, [Get course updates](docs/setup/course-updates.md) explains what to do.
+When `academy health` says a newer release is available, run `academy update`. If the release changes a lesson you already solved, it keeps your code and lists that lesson: read the [changelog](CHANGELOG.md), then run the lesson's checks again.
 
 ## After Module 0
 
-Module 0 is a sample of M74 Academy's course material. The full course adds instructor-led labs, peer review, and project review.
+Module 0 is a sample of M74 Academy's course material, and a readiness check. M74 Academy is not a first Python course: it is for people who can already program and want to move into VFX pipeline TD work. If these lessons felt easy, you're ready for Module 1. If the Python itself was new, start with a free introduction such as [Harvard's CS50P](https://cs50.harvard.edu/python/), then come back.
 
 ## Use terms
 

@@ -1,3 +1,7 @@
+---
+icon: lucide/book-a
+---
+
 # Glossary
 
 Every term here is also explained in the lesson that first uses it; the link takes you there.
@@ -41,3 +45,9 @@ The kind of work a file contains, such as `comp` (compositing) or `roto`. [Names
 ### Version
 
 A numbered delivery of the same work, such as `v002`. Each new delivery gets the next version. [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
+
+## Pages by term
+
+Each lesson lists the terms it defines as tags at the bottom of the page. Every tag, with its pages:
+
+<!-- material/tags -->

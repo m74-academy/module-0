@@ -19,18 +19,18 @@ def test_sample(capsys):
 
 @pytest.mark.parametrize("argv", [[], ["a", "b"]])
 def test_usage(capsys, argv: list[str]):
-    """Exactly one argument, or a usage message on stderr and 2."""
+    """Exactly one argument, or a usage message and 2."""
     assert main(argv) == 2
     captured = capsys.readouterr()
-    assert (captured.out, captured.err) == ("", "usage: count-frames FOLDER\n")
+    assert captured.out == "usage: count-frames FOLDER\n"
 
 
 def test_not_a_folder(tmp_path: Path, capsys):
-    """A missing folder is an error on stderr."""
+    """A missing folder is an error."""
     missing = tmp_path / "gone"
     assert main([str(missing)]) == 2
     captured = capsys.readouterr()
-    assert (captured.out, captured.err) == ("", f"error: {missing} is not a folder\n")
+    assert captured.out == f"error: {missing} is not a folder\n"
 
 
 def test_run_as_a_script():

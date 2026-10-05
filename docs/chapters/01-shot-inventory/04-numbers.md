@@ -1,8 +1,12 @@
+---
+icon: lucide/book-open
+---
+
 # Lesson 1.4 — Numbers from Text
 
 Splitting a name gives you text: `"1001"`, `"v002"`. But the questions are about numbers: which frame comes next? Which version is newer? Text can't answer them, so you **convert**.
 
-## int() and str()
+## `int()` and `str()`
 
 ```python
 frame = "1001"
@@ -29,26 +33,32 @@ print(number, f"v{number + 1:03d}")
 2 v003
 ```
 
-> **Think:** As text, is `"999"` smaller than `"1000"`?
+!!! question "Think"
 
-<details markdown="1"><summary>Answer</summary>
+    As text, is `"999"` smaller than `"1000"`?
 
-No. Text is compared one character at a time, and `"9"` comes after `"1"`, so `"999" > "1000"` is `True`. As numbers, `999 > 1000` is `False`. That's why frames are compared as numbers.
+??? success "Answer"
 
-</details>
+    No. Text is compared one character at a time, and `"9"` comes after `"1"`, so `"999" > "1000"` is `True`. As numbers, `999 > 1000` is `False`. That's why frames are compared as numbers.
 
 ## Assignment
 
 Open `src/chapter_01/lesson_04.py`.
 
-**1. `frame_number(name)`** returns the frame of a filename as a number: `frame_number("SH010_comp_v002.0007.exr")` returns `7`.
+**1. `frame_number(name)`** returns the frame of a filename as a number.
 
-**2. `version_number(version)`**: `"v002"` returns `2`.
+> Expected: `frame_number("SH010_comp_v002.0007.exr")` → `7`
 
-**3. `next_version(version)`**: `"v002"` returns `"v003"`, with at least three digits, so `"v999"` returns `"v1000"`.
+**2. `version_number(version)`**: the version as a number.
+
+> Expected: `version_number("v002")` → `2`
+
+**3. `next_version(version)`**: the next version, with at least three digits.
+
+> Expected: `next_version("v999")` → `"v1000"`
+
+Check your work:
 
 ```console
 academy test 1 4
 ```
-
-Next: [Lesson 1.5 — Frame Ranges and List Comprehensions](05-ranges.md).

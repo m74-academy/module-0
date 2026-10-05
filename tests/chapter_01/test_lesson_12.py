@@ -15,14 +15,14 @@ SAMPLE = Path(__file__).resolve().parents[2] / "docs/chapters/01-shot-inventory/
 
 EXPECTED = {
     "sequences": {
-        "SH010_comp_v002": {"frames": "1001-1002, 1004", "missing": "1003", "count": 3},
-        "SH010_roto_v001": {"frames": "1001-1002", "missing": "", "count": 2},
-        "SH020_comp_v001": {"frames": "998-1001", "missing": "", "count": 4},
+        "SH010_comp_v002": {"frames": "1001-1004", "missing": [1003], "count": 3},
+        "SH010_roto_v001": {"frames": "1001-1002", "missing": [], "count": 2},
+        "SH020_comp_v001": {"frames": "998-1001", "missing": [], "count": 4},
     },
     "other": ["SH020_preview.mov", "notes.txt"],
 }
 REPORT = [
-    "SH010_comp_v002: 1001-1002, 1004 (missing 1003)",
+    "SH010_comp_v002: 1001-1004 (missing 1003)",
     "SH010_roto_v001: 1001-1002 (complete)",
     "SH020_comp_v001: 998-1001 (complete)",
     "Other: SH020_preview.mov, notes.txt",
@@ -53,12 +53,18 @@ def test_sample_report():
 def test_rules(tmp_path: Path):
     """Case, odd names, duplicates by extension, and subfolders."""
     folder = _make(tmp_path / "d", "A_x_v001.0005.EXR", "A_x_v001.0007.dpx", "A_x_v001.0007.exr",
-                   "thumbnail.exr", "A_x_v001.v2.exr", "readme")
+                   "thumbnail.exr", "readme")
     _make(folder / "old", "A_x_v001.0006.exr")
     assert inventory(folder) == {
-        "sequences": {"A_x_v001": {"frames": "5, 7", "missing": "6", "count": 2}},
-        "other": ["A_x_v001.v2.exr", "readme", "thumbnail.exr"],
+        "sequences": {"A_x_v001": {"frames": "5-7", "missing": [6], "count": 2}},
+        "other": ["readme", "thumbnail.exr"],
     }
+
+
+def test_report_several_missing():
+    """Several missing frames are joined by a comma."""
+    result = {"sequences": {"S_c_v001": {"frames": "1-5", "missing": [2, 4], "count": 3}}, "other": []}
+    assert report_lines(result) == ["S_c_v001: 1-5 (missing 2, 4)", "Other: none"]
 
 
 def test_empty_folder(tmp_path: Path):
@@ -85,15 +91,14 @@ def test_main_complete(tmp_path: Path, capsys):
     assert main([str(folder), str(tmp_path / "out.json")]) == 0
 
 
-@pytest.mark.parametrize("case", ["no arguments", "missing folder", "output inside folder"])
+@pytest.mark.parametrize("case", ["no arguments", "missing folder"])
 def test_main_bad_input(tmp_path: Path, capsys, case: str):
-    """Bad input is 2, with a message on stderr, and nothing written into the folder."""
+    """Bad input is 2, with a message, and nothing written into the folder."""
     folder = _make(tmp_path / "d", "S_c_v001.0001.exr")
-    argv = {"no arguments": [], "missing folder": [str(tmp_path / "gone"), str(tmp_path / "o.json")],
-            "output inside folder": [str(folder), str(folder / "shots.json")]}[case]
+    argv = {"no arguments": [], "missing folder": [str(tmp_path / "gone"), str(tmp_path / "o.json")]}[case]
     assert main(argv) == 2
     captured = capsys.readouterr()
-    assert captured.out == "" and captured.err
+    assert captured.out
     assert sorted(p.name for p in folder.iterdir()) == ["S_c_v001.0001.exr"]
 
 

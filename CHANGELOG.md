@@ -5,6 +5,32 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.0] — 2026-10-05
+
+### Changed
+
+- The setup pages are the single setup guide for every M74 Academy module. The pages are renamed *Install the software* and *Set up the module*. *Set up the module* adds the setup recording, the fork and workspace illustrations, and an **Open it in VS Code** step; *Install the software* adds the sign-in illustration. The *Get course updates* page is gone: the start page and README say when to run `academy update`.
+- *Set up the module* shows the course, your fork, and your clone as a diagram, with where each lives, its remote name, and how `git push` and `academy update` connect them. Course pages can now include Mermaid diagrams.
+- The sidebar lists the start page and each chapter's overview as their own entries.
+- *Set up the module* explains how to run Python in the module: interactively, a file, a lesson as a script, and your own lesson function.
+- Lesson 1.5 adds a tip on when to write a comprehension and when a `for` loop.
+- Every assignment function shows one example under its description, as `> Expected: call → result`, in the same form on every lesson.
+- Each assignment introduces its `academy test` command with "Check your work:".
+- Lesson 1.7 drops `summarize`: you write `sort_by_frame` and `format_run(start, end)`, and its Think question asks why `sorted()` beats `.sort()` there.
+- The capstone reports each sequence as a range plus its missing frames: `SH010_comp_v002: 1001-1004 (missing 1003)`. In the JSON, `"frames"` is the range and `"missing"` a list of frames.
+- *Set up the module* adds **When a check fails**: read the `E` lines, and add a `print` to see a value; its output shows under **Captured stdout call**. Lesson 1.2 links to it.
+- Lesson 1.8 builds groups with `if sequence not in groups:` instead of `setdefault`, so each step is visible.
+- Lesson 1.9 lists a folder with `os.listdir` and `os.path.isfile` instead of `pathlib`, and is renamed *Listing a Folder with os*. Starters and examples through the capstone take folder and file paths as text.
+- Code in headings, titles, and prose is in backticks, such as `os`, `uv`, and `pytest`.
+- Lesson 1.10 shows how to read a JSON file back, and `save_json` no longer needs a final newline.
+- Lesson 1.11 teaches the script in three short steps, each with its output: `script, *args = sys.argv`, `main(args)` returning a status, and the guard. Messages print normally; stderr is no longer part of Module 0. Running the finished lesson with `uv run python -m` comes after the checks, with a line on `-m`.
+- The optional *Ask Your Inventory* AI extension is removed: it needed a paid API key in a public fork. The capstone's "What next" points to Module 5 instead.
+- The capstone shows how `", ".join` joins the missing frames and other files, the one step no lesson taught. Lesson 1.11 suggests reusing `image_files`.
+- The capstone is simpler to read and asks only what the lessons taught: `main` is a table of situations, `1` is explained, the plan names the functions to reuse, and the checks come before running it. A frame image no longer needs digits as its frame, and the tool no longer refuses an `OUTPUT` inside `FOLDER`.
+- `.vscode/extensions.json` recommends the Python extension when you open the folder in VS Code.
+- `.gitattributes` lets `academy update` keep your lesson code when a course release changes the same lesson, and list it so you can recheck that lesson. Run `uv tool upgrade m74-academy-cli` **before** this update, so it runs with `academy` 0.4.2 or later.
+- The README's **After Module 0** section presents Module 0 as a readiness check: if it felt easy, Module 1 is next; if Python itself was new, start with a free introduction such as CS50P.
+
 ## [0.1.1] — 2026-10-03
 
 ### Added

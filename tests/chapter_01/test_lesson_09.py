@@ -4,8 +4,7 @@ from pathlib import Path
 
 from chapter_01.lesson_09 import image_files, list_files
 
-SAMPLE = Path(__file__).resolve(
-).parents[2] / "docs/chapters/01-shot-inventory/sample/dump"
+SAMPLE = Path(__file__).resolve().parents[2] / "docs/chapters/01-shot-inventory/sample/dump"
 
 
 def _make(folder: Path, *names: str) -> Path:

@@ -5,6 +5,18 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.1] — 2026-10-05
+
+### Changed
+
+- *Set up the module* covers the `origin remote is missing` and `origin is not a GitHub fork` health checks, and its last line points to your module's README.
+- Lesson 1.2 no longer lists what its checks try; the check named "lesson example" is the frame-7 case the lesson shows.
+- Lesson 1.11 asks you to create a `work` folder for experiments; `.gitignore` keeps `work/` and the capstone's `shots.json` out of your fork.
+
+### Added
+
+- Terminal recordings show JSON surviving between Python processes, script arguments and exit statuses, the finished Shot Inventory, and the difference between Python's prompt and the shell. The setup guide also shows the existing synthetic check–edit–check demo.
+
 ## [0.2.0] — 2026-10-05
 
 ### Changed

@@ -63,4 +63,4 @@ Check your work:
 academy test 1 2
 ```
 
-The checks also try frame 0, a five-digit frame, other versions, and `.dpx`. A check fails? See [when a check fails](../../setup/fork-clone-setup.md#when-a-check-fails).
+A check fails? See [when a check fails](../../setup/fork-clone-setup.md#when-a-check-fails).

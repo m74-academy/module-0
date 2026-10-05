@@ -71,6 +71,10 @@ SH020_comp_v001: 998-1001 (complete)
 Other: SH020_preview.mov, notes.txt
 ```
 
+![Run the finished Shot Inventory on the sample delivery, see the missing frame and exit status 1, then read the saved JSON for SH010_comp_v002.](assets/inventory-loop.gif)
+
+This is the finished tool's behavior; the recording shows no implementation. Status `1` means the scan succeeded and found missing frames. It still saves `shots.json`, where another program can read the same finding. The recording uses Bash's `echo $?` to inspect the status immediately after the command.
+
 ## Plan before you code
 
 !!! question "Think"

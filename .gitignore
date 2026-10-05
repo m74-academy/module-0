@@ -10,3 +10,6 @@ site/
 .ruff_cache/
 .coverage
 htmlcov/
+# Your experiments and the capstone's output stay out of your fork.
+work/
+shots.json

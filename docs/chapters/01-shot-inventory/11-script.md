@@ -10,7 +10,7 @@ Your functions work when you call them in Python. A coordinator doesn't write Py
 
 ## The words after the command
 
-Save this as `work/args.py` in the `module-0` folder:
+Create a folder `work` in the `module-0` folder for your own experiments, and save this in it as `args.py`:
 
 ```python
 import sys
@@ -68,6 +68,10 @@ if __name__ == "__main__":
 ```
 
 `__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and hands `main`'s number to the terminal, where other programs can read it.
+
+![Pass arguments to a script, run a prepared image counter successfully and without arguments, inspect statuses 0 and 2, then import it without running the counter.](../../assets/script-loop.gif)
+
+The counter in the recording is already implemented. Its printed answer and exit status are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard keeps the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit status.
 
 !!! question "Think"
 

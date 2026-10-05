@@ -120,6 +120,10 @@ The module has its own Python in `.venv/`, with your lesson code installed. Run 
 
 After you save a change to a lesson, exit `uv run python` and start it again: it loads your file only once. A plain `python` may start another Python, or none, without your lesson code. In VS Code, **Run Python File** uses the module's Python once the interpreter is set to `.venv`.
 
+![Start Python with uv run python, try a shot-label expression at its prompt, exit to the shell, then run a Python file with arguments.](../assets/python-loop.gif)
+
+Type Python at the `>>>` prompt; type terminal commands at the `$` prompt. The recording's `work/args.py` is the short argument-printing example from [Lesson 1.11](../chapters/01-shot-inventory/11-script.md#the-words-after-the-command), not a file supplied with the module.
+
 ## When a check fails
 
 Read the `E` lines of the failure: in `assert A == B`, `A` is what your function returned and `B` is what the check expected.
@@ -135,6 +139,10 @@ shot = 'SH010'
 
 `print("shot =", repr(shot))` shows quotes and stray spaces that a plain `print` hides. Remove the `print` when you're done. To try a value by hand, [run Python](#run-python) and import your function.
 
+![Check a synthetic shot-label exercise, read the failure, fix and save the label, then run the checks again and see them pass.](../assets/lesson-loop.gif)
+
+The recording uses a small practice exercise, so it reveals no lesson solution. It edits with `nano`, a terminal editor; in this course, make and save the change in VS Code, then run `academy test` again in its terminal.
+
 ## Fix the remotes of an existing clone
 
 `academy health` checks the remotes. If it says **origin is the course, not your fork** (you cloned the course instead of your fork), keep the folder and your work:
@@ -146,6 +154,15 @@ git push -u origin main
 
 `gh repo fork --remote` creates your fork (or finds it), renames the course remote to `upstream`, and adds your fork as `origin`. `git push` then saves your work there.
 
+If it says **origin remote is missing** or **origin is not a GitHub fork**, add your fork as `origin`, then save your work there:
+
+```console
+git remote add origin https://github.com/YOUR-USERNAME/module-0.git
+git push -u origin main
+```
+
+If `origin` exists but points somewhere else, use `git remote set-url origin` with the same address instead of `add`.
+
 If it says **upstream remote is missing** or **upstream is … not the course**, run the fix it prints, for example:
 
 ```console
@@ -154,4 +171,4 @@ git remote add upstream https://github.com/m74-academy/module-0.git
 
 Run `academy health` again to confirm.
 
-Back to **Start here** in the [Module 0 README](https://github.com/m74-academy/module-0#start-here) for the next step.
+Back to **Start here** in your module's README for the next step.

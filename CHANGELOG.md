@@ -5,6 +5,12 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.5] — 2026-10-06
+
+### Fixed
+
+- The old install and set-up page addresses open a short page that links to the M74 Academy guides; 0.2.4 removed them, so links from earlier releases ended in a 404.
+
 ## [0.2.4] — 2026-10-06
 
 ### Changed

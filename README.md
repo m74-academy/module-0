@@ -8,7 +8,7 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
 ## Start here
 
-1. **Install the tools**, once: [`uv`](https://docs.astral.sh/uv/getting-started/installation/), [Git](https://git-scm.com/downloads), the [GitHub CLI](https://cli.github.com/) (then run `gh auth login`), and [VS Code](https://code.visualstudio.com/). Step by step, with every system's commands: [Install the software](docs/setup/install-uv-and-git.md). Then install the course command:
+1. **Install the tools**, once: [`uv`](https://docs.astral.sh/uv/getting-started/installation/), [Git](https://git-scm.com/downloads), the [GitHub CLI](https://cli.github.com/) (then run `gh auth login`), and [VS Code](https://code.visualstudio.com/). Step by step, with every system's commands: [Install the software](https://github.com/m74-academy/community/blob/main/guides/install-uv-and-git.md). Then install the course command:
 
    ```console
    uv tool install git+https://github.com/m74-academy/academy-cli
@@ -44,7 +44,7 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
 ## How a lesson works
 
-Each lesson page explains one idea with an example you can run, then gives you a function to write in `src/chapter_01/lesson_NN.py`. The file has the function's name and a one-line description; you replace `pass` with your code. `academy test 1 NN` runs the lesson's checks and tells you which case failed and what your function returned. Fix, run again, and move on when it passes. To try an example or your own function, [run Python](docs/setup/fork-clone-setup.md#run-python) through `uv` in the `module-0` folder. The checks include cases the lesson doesn't show, so a passing function works, not just the example.
+Each lesson page explains one idea with an example you can run, then gives you a function to write in `src/chapter_01/lesson_NN.py`. The file has the function's name and a one-line description; you replace `pass` with your code. `academy test 1 NN` runs the lesson's checks and tells you which case failed and what your function returned. Fix, run again, and move on when it passes. To try an example or your own function, [run Python](https://github.com/m74-academy/community/blob/main/guides/fork-clone-setup.md#run-python) through `uv` in the `module-0` folder. The checks include cases the lesson doesn't show, so a passing function works, not just the example.
 
 ## Course contents
 
@@ -56,7 +56,7 @@ When `academy health` says a newer release is available, run `academy update`. I
 
 ## Getting help
 
-Stuck on a lesson or a setup step? [Open an issue](https://github.com/m74-academy/module-0/issues/new/choose) in this repository and pick the matching template. Include the command you ran, its full output, your operating system, and the lesson you were on.
+Questions about a lesson or a setup step go in [Discussions](https://github.com/m74-academy/module-0/discussions); search first, and don't post solutions to the project. A mistake in a lesson, or a setup step that fails? [Open an issue](https://github.com/m74-academy/module-0/issues/new/choose) and pick the matching template. Include the command you ran, its full output, your operating system, and the lesson you were on.
 
 ## After Module 0
 

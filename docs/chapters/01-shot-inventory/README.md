@@ -4,7 +4,7 @@ icon: lucide/map
 
 # Chapter 1 — Shot Inventory
 
-A visual-effects studio produces thousands of image files a day, and their names are the first thing anyone reads. This chapter starts with a folder where files from several shots have been dumped together, and ends with a script that sorts out what is there, what is missing, and what doesn't belong. Each lesson teaches one piece of Python through that problem, with a function in `src/chapter_01/` that you check with `academy test 1 LESSON`. To try an example or your own function, [run Python](../../setup/fork-clone-setup.md#run-python) through `uv`.
+A visual-effects studio produces thousands of image files a day, and their names are the first thing anyone reads. This chapter starts with a folder where files from several shots have been dumped together, and ends with a script that sorts out what is there, what is missing, and what doesn't belong. Each lesson teaches one piece of Python through that problem, with a function in `src/chapter_01/` that you check with `academy test 1 LESSON`.
 
 1. [Names Carry Data](01-names-carry-data.md) — read a messy folder by hand, and see what a filename tells you.
 2. [Building Names with f-strings](02-f-strings.md) — build a frame filename from its parts, with padding.

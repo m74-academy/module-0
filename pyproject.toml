@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "m74-academy-module-0"
-version = "0.2.3"
+version = "0.2.4"
 description = "M74 Academy Module 0: a free introduction"
 requires-python = ">=3.10"
 dependencies = [
@@ -18,7 +18,7 @@ docs = ["zensical==0.0.64"]
 # Read by the academy command (m74-academy-cli, installed with uv tool install).
 course-repo = "m74-academy/module-0"
 # academy health and update link here; academy-cli 0.4.2 and later default to the same folder.
-guides = "https://github.com/m74-academy/module-0/blob/main/docs/setup/"
+guides = "https://github.com/m74-academy/community/blob/main/guides/"
 written = ["1.1"]
 
 [tool.academy.chapters]

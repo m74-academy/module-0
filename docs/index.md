@@ -4,7 +4,7 @@ icon: lucide/house
 
 # Module 0 — Shot Inventory
 
-New here? [Install the software](setup/install-uv-and-git.md), then [set up the module](setup/fork-clone-setup.md), and run `academy health` to check your setup.
+New here? [Install the software](https://github.com/m74-academy/community/blob/main/guides/install-uv-and-git.md), then [set up the module](https://github.com/m74-academy/community/blob/main/guides/fork-clone-setup.md), and run `academy health` to check your setup.
 
 Begin with [Chapter 1 — Shot Inventory](chapters/01-shot-inventory/README.md).
 

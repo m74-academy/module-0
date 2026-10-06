@@ -44,8 +44,6 @@ plugins:
 nav:
   - Start:
       - Start here: index.md
-      - Install the software: setup/install-uv-and-git.md
-      - Set up the module: setup/fork-clone-setup.md
   - "Ch 1 · Shot Inventory":
       - Overview: chapters/01-shot-inventory/README.md
       - "1.1 Names Carry Data": chapters/01-shot-inventory/01-names-carry-data.md

@@ -5,6 +5,13 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.4] — 2026-10-06
+
+### Changed
+
+- *Getting help* sends questions to this repository's Discussions and mistakes or setup failures to its issues.
+- The install and set-up pages moved to the public M74 Academy guides; the old pages link to them.
+
 ## [0.2.3] — 2026-10-06
 
 ### Added

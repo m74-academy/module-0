@@ -62,5 +62,3 @@ Check your work:
 ```console
 academy test 1 2
 ```
-
-A check fails? See [when a check fails](../../setup/fork-clone-setup.md#when-a-check-fails).

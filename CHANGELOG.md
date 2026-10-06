@@ -5,6 +5,12 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.2.3] — 2026-10-06
+
+### Added
+
+- A *Getting help* section in the README points to this repository's issues.
+
 ## [0.2.2] — 2026-10-05
 
 ### Changed

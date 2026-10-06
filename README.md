@@ -54,6 +54,10 @@ Each lesson page explains one idea with an example you can run, then gives you a
 
 When `academy health` says a newer release is available, run `academy update`. If the release changes a lesson you already solved, it keeps your code and lists that lesson: read the [changelog](CHANGELOG.md), then run the lesson's checks again.
 
+## Getting help
+
+Stuck on a lesson or a setup step? [Open an issue](https://github.com/m74-academy/module-0/issues/new/choose) in this repository and pick the matching template. Include the command you ran, its full output, your operating system, and the lesson you were on.
+
 ## After Module 0
 
 Module 0 is a sample of M74 Academy's course material, and a readiness check. M74 Academy is not a first Python course: it is for people who can already program and want to move into VFX pipeline TD work. If these lessons felt easy, you're ready for Module 1. If the Python itself was new, start with a free introduction such as [Harvard's CS50P](https://cs50.harvard.edu/python/), then come back.

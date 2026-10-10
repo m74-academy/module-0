@@ -145,6 +145,6 @@ def test_run_as_a_script(tmp_path: Path):
     """Running the file exits with main's result."""
     result = subprocess.run([sys.executable, "-m", "chapter_01.lesson_12", str(_sample(tmp_path)),
                              str(tmp_path / "s.json")],
-                            capture_output=True, text=True, check=False)
+                            capture_output=True, text=True, encoding="utf-8", check=False)
     assert result.returncode == 1, result.stderr
     assert result.stdout.splitlines() == REPORT

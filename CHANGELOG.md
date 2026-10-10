@@ -3,6 +3,12 @@
 What changed in each release of Module 0. Get a new release with the steps in
 [Updates](README.md#updates). The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.8] — 2026-10-11
+
+### Changed
+
+- The Lesson 11 and Lesson 12 checks run your script with `encoding="utf-8"`, so `academy test` shows no `EncodingWarning` notes under your results. No check changed what it tests.
+
 ## [0.2.7] — 2026-10-11
 
 ### Changed

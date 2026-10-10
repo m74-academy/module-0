@@ -48,8 +48,8 @@ def test_not_a_folder(tmp_path: Path, capsys, name: str):
 def test_run_as_a_script():
     """Running the file exits with main's result."""
     result = subprocess.run([sys.executable, "-m", "chapter_01.lesson_11", str(SAMPLE)],
-                            capture_output=True, text=True, check=False)
+                            capture_output=True, text=True, encoding="utf-8", check=False)
     assert (result.returncode, result.stdout) == (0, "9 image files\n"), result.stderr
     missing = subprocess.run([sys.executable, "-m", "chapter_01.lesson_11"],
-                             capture_output=True, text=True, check=False)
+                             capture_output=True, text=True, encoding="utf-8", check=False)
     assert missing.returncode == 2

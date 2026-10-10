@@ -8,6 +8,7 @@ from chapter_01.lesson_03 import is_image, split_frame_name
 @pytest.mark.parametrize("name, expected", [
     ("SH010_comp_v002.1001.exr", True), ("a.0001.DPX", True), ("a.0001.Exr", True),
     ("notes.txt", False), ("exr_notes.txt", False), ("SH020_preview.mov", False),
+    ("SH010_exr", False),
 ])
 def test_is_image(name: str, expected: bool):
     """Recognize images by the end of the name, in any case."""
@@ -25,7 +26,7 @@ def test_split_frame_name(name: str, expected: dict[str, str]):
     assert split_frame_name(name) == expected
 
 
-@pytest.mark.parametrize("name", ["notes.txt", "thumbnail.exr", "SH020_preview.mov"])
+@pytest.mark.parametrize("name", ["notes.txt", "thumbnail.exr", "SH020_preview.mov", "SH020_preview.1001.mov"])
 def test_not_a_frame(name: str):
     """Names that aren't frame images give None."""
     assert split_frame_name(name) is None

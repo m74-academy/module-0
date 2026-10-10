@@ -3,7 +3,39 @@
 What changed in each release of Module 0. Get a new release with the steps in
 [Updates](README.md#updates). The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## [0.2.6] — 2026-10-10
+
+### Added
+
+- Two screenshots: Lesson 1 shows the sample folder in VS Code's Explorer, and the capstone shows a finished Shot Inventory run, with `shots.json` above the terminal report.
+- Lesson 3 introduces dictionaries before its assignment returns one, and Lesson 6 shows how `set()` turns a list into a set.
+
+### Changed
+
+- The capstone states two rules: a frame number is digits only, so a name such as `SH010_comp_v002.abcd.exr` goes with the other files; and `OUTPUT` belongs outside `FOLDER`.
+- Every lesson got clearer explanations and better Think questions, and the checks now catch more wrong solutions. If you already solved a lesson, run its `academy test 1 N` again. The changes that can make a solved lesson fail:
+  - Lesson 3: `split_frame_name` must return `None` for a name that isn't an image, even when it has two dots, and `is_image` needs the dot in each ending.
+  - Lesson 4: `frame_number` takes the frame from between the last two dots, so `.10001.exr` gives `10001`; `version_number` handles `v1000`.
+  - Lesson 5: frames 9 and 10 pad to `0009` and `0010`. The brief now states that `frame_list` returns an empty list when `last` is before `first`.
+  - Lesson 6: `missing_frames` returns a sorted list, each frame once.
+  - Lesson 7: the sort key must handle a name with an extra dot, such as `a.denoise.2.exr`; use `rsplit(".", 2)`.
+  - Lesson 8: `group_by_sequence` skips a name whose frame isn't digits or that isn't an image, such as `SH020_preview.0001.mov`, and lists each frame once, even when it comes as both `.exr` and `.dpx`. A name with an extra dot, such as `SH010_comp_v002.denoise.1001.exr`, is its own sequence, and frames sort as numbers (`999` before `1000`).
+  - Lesson 9: `image_files` keeps `.dpx` files too, in any letter case.
+  - Lesson 10: both examples on the page are now checks; `save_json` must replace the file's contents (`"w"`, not `"a"`), and `load_json` must read UTF-8.
+  - Lesson 11: a file given as the folder is an error, and the count includes `.dpx` and uppercase names.
+  - Lessons 9, 10, and the capstone: the checks pass folders and files as text (`str`), as the briefs say. If your code used `folder / name` or `path.open()`, build paths with `os.path.join` and use `open(path)`.
+  - Capstone: new checks for a one-frame sequence (`"10"`), one or three arguments, a file given as `FOLDER`, and the report and JSON when nothing is missing.
+- The capstone's plan says what Lesson 8's `group_by_sequence` gives you and what you still collect yourself. Lesson 11 and the capstone say that Python also exits with `1` when a script crashes, and the traceback tells the two apart.
+- The glossary adds *Coordinator* and *Dictionary*, and *Frame padding* says the width is a minimum.
+- In tables, a code value such as a shot name stays on one line.
+- The README links the guides that explain how a lesson works and how the course works.
+
+### Fixed
+
+- Lesson 1 no longer says the extension is part of a sequence; frames group by the name before the frame number, as in Lesson 8 and the capstone.
+- Lesson 7 says a single frame comes back as text, such as `"1004"`.
+- The Lesson 10 check accepts a JSON file that ends with a newline.
+- The capstone checks now test the exact usage and error messages, and that the report sorts sequences.
 
 ## [0.2.5] — 2026-10-06
 

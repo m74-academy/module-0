@@ -10,11 +10,11 @@ tags:
 
 # Lesson 1.1 — Names Carry Data
 
-Imagine a production in a hurry. Artists on several shots have been saving their renders into one shared folder. Someone has to answer simple questions, and nobody can: which shots are in here? Is anything missing? Which file is the latest? The files aren't the problem. The problem is that nobody has read what their **names** already say.
+Imagine a production in a hurry. Artists on several shots have been saving their image files into one shared folder. Someone has to answer simple questions, and nobody can: which shots are in here? Is anything missing? Which version is the newest? The files aren't the problem. The problem is that nobody has read what their **names** already say.
 
 ## A filename is a record
 
-A **shot** is one continuous piece of a film, such as `SH010`. Each shot is a series of still images, **frames**, numbered in order. Different people work on the same shot: a compositor (`comp`) combines the elements, a roto artist (`roto`) draws the shapes others need. Each time they deliver, the **version** goes up: `v001`, `v002`. A studio names every frame file by one rule:
+A **shot** is one continuous piece of a film, such as `SH010`. Each shot is a series of still images, **frames**, numbered in order. The number labels the picture; it doesn't count from 1. Studios often start at 1001, so a shot can grow at the front: `SH020` starts at `0998`. Different people work on the same shot: a compositor (`comp`) builds the final picture, and a roto artist (`roto`) traces outlines. The kind of work is the **task**: `comp` or `roto`. Each time they deliver, the **version** goes up: `v001`, `v002`. A studio names every frame file by one rule:
 
 ```text
 SH010_comp_v002.1001.exr
@@ -25,7 +25,7 @@ SH010_comp_v002.1001.exr
 └─────────────────────── shot
 ```
 
-Everything before the frame number identifies a **sequence**: all the frames of one shot, task, and version. So the name alone says which shot, which job, which delivery, and which picture in the series.
+Everything before the frame number identifies a **sequence**: all the frames of one shot, task, and version. So the name alone says which shot, which task, which delivery, and which picture in the series.
 
 ## The folder
 
@@ -40,13 +40,17 @@ SH010_roto_v001.1002.exr    SH020_preview.mov
 notes.txt
 ```
 
+![The sample dump folder expanded in VS Code's Explorer, showing nine frame files, SH020_preview.mov, and notes.txt.](../../assets/sample-folder.png)
+
+Open the same folder in VS Code's Explorer to inspect the names yourself. The sample `.exr` files are placeholders, not real images.
+
 !!! question "Think"
 
-    Which part of `SH010_comp_v002.1001.exr` changes from one frame to the next, and which parts stay the same?
+    `SH010_comp_v001.1001.exr` and `SH010_comp_v002.1001.exr` show the same frame of the same shot. Why do they belong to different sequences?
 
 ??? success "Answer"
 
-    Only the frame number, `1001`, changes. The shot, task, version, and extension stay the same for every frame of the sequence. So two files belong to the same sequence when everything except the frame number matches.
+    They are different deliveries of the work. Mixing them would put pictures from two versions into one series, so the version is part of the sequence's name. Only the frame number changes from one frame to the next; the shot, task, and version stay the same for every frame of a sequence.
 
 !!! question "Think"
 
@@ -54,6 +58,14 @@ notes.txt
 
 ??? success "Answer"
 
-    Three sequences: `SH010_comp_v002` (frames 1001, 1002, 1004), `SH010_roto_v001` (1001, 1002), and `SH020_comp_v001` (998 to 1001). Frame 1003 of `SH010_comp_v002` is missing: the numbers jump from 1002 to 1004. `SH020_preview.mov` and `notes.txt` aren't frames; keep them, but report them separately. `notes.txt` is worth reading: it explains the hole.
+    Three sequences: `SH010_comp_v002` (frames 1001, 1002, 1004), `SH010_roto_v001` (1001, 1002), and `SH020_comp_v001` (`0998` to `1001`). Frame 1003 of `SH010_comp_v002` is missing: the numbers jump from 1002 to 1004. `SH020_preview.mov` and `notes.txt` aren't frames; keep them, but report them separately. `notes.txt` is worth reading: it explains the hole.
+
+!!! question "Think"
+
+    Why is frame 1003 of `SH010_comp_v002` reported missing, but frame 1000 is not?
+
+??? success "Answer"
+
+    The folder only shows where each sequence starts and ends. A gap between the first and last frame is clearly a hole. Nothing in the folder says the shot should start earlier, so frame 1000 isn't missing; it may never have existed.
 
 You did by eye what the rest of this chapter teaches Python to do, for any folder, in a fraction of a second.

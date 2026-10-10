@@ -46,6 +46,12 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
 Each lesson page explains one idea with an example you can run, then gives you a function to write in `src/chapter_01/lesson_NN.py`. The file has the function's name and a one-line description; you replace `pass` with your code. `academy test 1 NN` runs the lesson's checks and tells you which case failed and what your function returned. Fix, run again, and move on when it passes. To try an example or your own function, [run Python](https://github.com/m74-academy/community/blob/main/guides/fork-clone-setup.md#run-python) through `uv` in the `module-0` folder. The checks include cases the lesson doesn't show, so a passing function works, not just the example.
 
+Step by step, with what a failing and a passing check look like: [Read, edit, and check a lesson](https://github.com/m74-academy/community/blob/main/guides/lesson-loop.md).
+
+## How the course works
+
+Module 0 is one chapter of lessons and a capstone, the project you build at the end. The full M74 Academy course uses the same lesson loop across five modules, adds optional Gold lessons and labs, and ends each module with a capstone you build in your own repository. [How the course works](https://github.com/m74-academy/community/blob/main/guides/how-the-course-works.md) explains it all.
+
 ## Course contents
 
 [Chapter 1 — Shot Inventory](docs/chapters/01-shot-inventory/README.md): names that carry data, building and splitting names, numbers in text, ranges, sets, sorting, dictionaries, folders, JSON, a runnable script, and the project.

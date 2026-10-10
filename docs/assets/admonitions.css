@@ -24,3 +24,9 @@
   -webkit-mask-image: var(--md-admonition-icon--gold);
   mask-image: var(--md-admonition-icon--gold);
 }
+
+/* Tables: keep a code value, such as a shot name or timecode, on one line. */
+.md-typeset table:not([class]) code {
+  white-space: nowrap;
+  word-break: normal;
+}

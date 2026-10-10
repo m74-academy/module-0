@@ -35,7 +35,9 @@ work/args.py
 
 ## `main` returns a status
 
-Put the work in a `main(args)` function that takes those words and **returns** a number: `0` means everything went fine, anything else means a problem, and `2` usually means the command was used wrong:
+Put the work in a `main(args)` function that takes those words and **returns** a number, the program's **exit code**: `0` means everything went fine, anything else means a problem, and `2` usually means the command was used wrong. Python also exits with `1` when a script stops on an uncaught error. So `1` from a script that uses its own codes can mean either result, and only the traceback tells them apart.
+
+`count-frames` in the usage message is the name a coordinator would type once the tool is installed. For now, you run the file with `uv run`.
 
 ```python
 def main(args):
@@ -46,6 +48,7 @@ def main(args):
     return 0
 
 
+# print shows the returned number here; the guard hands it to sys.exit instead
 print(main(["dump"]))
 print(main([]))
 ```
@@ -67,11 +70,21 @@ if __name__ == "__main__":
     sys.exit(main(args))
 ```
 
-`__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and hands `main`'s number to the terminal, where other programs can read it.
+`__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and hands `main`'s number to the terminal as the exit code, where other programs can read it. The name `main` is a habit: Python runs it only because the guard calls it.
 
 ![Pass arguments to a script, run a prepared image counter successfully and without arguments, inspect statuses 0 and 2, then import it without running the counter.](../../assets/script-loop.gif)
 
-The counter in the recording is already implemented. Its printed answer and exit status are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard keeps the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit status.
+The counter in the recording is already implemented. Its printed answer and exit code are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard keeps the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit code. In PowerShell, use `$LASTEXITCODE` instead.
+
+Once your own counter passes its checks, you can repeat the recording from the `module-0` folder:
+
+```console
+uv run python -m chapter_01.lesson_11
+echo $?
+uv run python -c "import chapter_01.lesson_11"
+```
+
+The first command prints `usage: count-frames FOLDER`, and `echo $?` prints `2`. The import prints nothing.
 
 !!! question "Think"
 
@@ -81,6 +94,23 @@ The counter in the recording is already implemented. Its printed answer and exit
 
     So a test can call `main(["some/folder"])` with any words it likes and check the result, without starting a new program. The guard is the only line that reads the real command line.
 
+!!! question "Think"
+
+    This file runs correctly from the terminal, but `academy test 1 11` runs no checks and reports `SystemExit: 2`. Why?
+
+    ```python
+    def main(args):
+        ...
+
+
+    script, *args = sys.argv
+    sys.exit(main(args))
+    ```
+
+??? success "Answer"
+
+    The last two lines have no guard, so they run whenever the file is imported. The checks import it, so `main` gets the test runner's words, and `sys.exit` stops the test run before any check executes. Put the two lines under `if __name__ == "__main__":`.
+
 ## Assignment
 
 Open `src/chapter_01/lesson_11.py` and write `main(args)` for a command that counts image files:
@@ -89,9 +119,9 @@ Open `src/chapter_01/lesson_11.py` and write `main(args)` for a command that cou
 |---|---|---|
 | Not exactly one argument | `usage: count-frames FOLDER` | `2` |
 | The argument isn't an existing folder | `error: FOLDER is not a folder` | `2` |
-| Otherwise | `N image files`, counting `.exr` and `.dpx` directly inside | `0` |
+| Otherwise | `N image files`, counting `.exr` and `.dpx` directly inside, in any letter case | `0` |
 
-You can reuse your Lesson 1.9 `image_files` to count. Then add the guard, so running the file calls `main` and exits with its result.
+You can reuse your Lesson 1.9 `image_files` to count: `from chapter_01.lesson_09 import image_files`. Then add the guard, so running the file calls `main` and exits with its result.
 
 > Expected on the sample folder: prints `9 image files`, returns `0`
 

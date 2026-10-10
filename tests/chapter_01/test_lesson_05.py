@@ -19,7 +19,11 @@ def test_expected_names():
         "SH010_comp_v002.1001.exr", "SH010_comp_v002.1002.exr"]
 
 
-def test_expected_names_padding():
-    """Frames below 1000 are padded."""
-    assert expected_names("SH020_comp_v001", 998, 1000, ".dpx") == [
-        "SH020_comp_v001.0998.dpx", "SH020_comp_v001.0999.dpx", "SH020_comp_v001.1000.dpx"]
+@pytest.mark.parametrize("first, last, expected", [
+    pytest.param(998, 1000, ["SH020_comp_v001.0998.dpx", "SH020_comp_v001.0999.dpx", "SH020_comp_v001.1000.dpx"],
+                 id="three-digit frames"),
+    pytest.param(9, 10, ["SH020_comp_v001.0009.dpx", "SH020_comp_v001.0010.dpx"], id="one- and two-digit frames"),
+])
+def test_expected_names_padding(first: int, last: int, expected: list[str]):
+    """Short frame numbers are padded to 4 digits."""
+    assert expected_names("SH020_comp_v001", first, last, ".dpx") == expected

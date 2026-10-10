@@ -7,9 +7,9 @@ from chapter_01.lesson_07 import format_run, sort_by_frame
 
 def test_sort_by_frame():
     """Sort by the number, not the text, and leave the input alone."""
-    names = ["a.10.exr", "a.9.exr", "a.100.exr", "a.0001.exr"]
-    assert sort_by_frame(names) == ["a.0001.exr", "a.9.exr", "a.10.exr", "a.100.exr"]
-    assert names == ["a.10.exr", "a.9.exr", "a.100.exr", "a.0001.exr"]
+    names = ["a.10.exr", "a.9.exr", "a.100.exr", "a.denoise.2.exr", "a.0001.exr"]
+    assert sort_by_frame(names) == ["a.0001.exr", "a.denoise.2.exr", "a.9.exr", "a.10.exr", "a.100.exr"]
+    assert names == ["a.10.exr", "a.9.exr", "a.100.exr", "a.denoise.2.exr", "a.0001.exr"]
 
 
 @pytest.mark.parametrize("start, end, expected", [

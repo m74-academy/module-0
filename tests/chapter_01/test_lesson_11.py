@@ -25,12 +25,24 @@ def test_usage(capsys, argv: list[str]):
     assert captured.out == "usage: count-frames FOLDER\n"
 
 
-def test_not_a_folder(tmp_path: Path, capsys):
-    """A missing folder is an error."""
-    missing = tmp_path / "gone"
-    assert main([str(missing)]) == 2
+def test_counts_images_only(tmp_path: Path, capsys):
+    """Both extensions in any case, directly inside the folder."""
+    for name in ["a.1001.EXR", "b.1002.dpx", "notes.txt", "old/c.1003.exr"]:
+        (tmp_path / name).parent.mkdir(exist_ok=True)
+        (tmp_path / name).write_text("", encoding="utf-8")
+    assert main([str(tmp_path)]) == 0
+    assert capsys.readouterr().out == "2 image files\n"
+
+
+@pytest.mark.parametrize("name", ["gone", "notes.txt"])
+def test_not_a_folder(tmp_path: Path, capsys, name: str):
+    """A missing path or a file is an error."""
+    path = tmp_path / name
+    if name == "notes.txt":
+        path.write_text("", encoding="utf-8")
+    assert main([str(path)]) == 2
     captured = capsys.readouterr()
-    assert captured.out == f"error: {missing} is not a folder\n"
+    assert captured.out == f"error: {path} is not a folder\n"
 
 
 def test_run_as_a_script():

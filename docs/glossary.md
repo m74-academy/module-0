@@ -6,6 +6,14 @@ icon: lucide/book-a
 
 Every term here is also explained in the lesson that first uses it; the link takes you there.
 
+### Coordinator
+
+The production person who tracks which shots and frames have arrived and what is still missing. The tools in this module report to them. [Sorting Frames as Numbers](chapters/01-shot-inventory/07-sorting.md)
+
+### Dictionary
+
+A Python collection of key-value pairs, written `{"shot": "SH010"}`. You look a value up by its key: `parts["shot"]`. [Splitting a Name into Parts](chapters/01-shot-inventory/03-splitting.md)
+
 ### Exit code
 
 The number a program returns when it finishes: `0` for success, anything else for a problem. Other programs read it. [A Script You Can Run](chapters/01-shot-inventory/11-script.md)
@@ -20,7 +28,7 @@ One still image of a shot. Frames are numbered in order, such as `1001`. [Names 
 
 ### Frame padding
 
-Writing a frame number with a fixed number of digits, filled with leading zeros: frame `7` as `0007`. [Building Names with f-strings](chapters/01-shot-inventory/02-f-strings.md)
+Writing a frame number with at least a fixed number of digits, filled with leading zeros; a longer number keeps all its digits: frame `7` as `0007`. [Building Names with f-strings](chapters/01-shot-inventory/02-f-strings.md)
 
 ### JSON
 

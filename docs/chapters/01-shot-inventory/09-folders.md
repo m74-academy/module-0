@@ -43,7 +43,7 @@ for name in os.listdir(folder):
 dump False True
 ```
 
-So a loop that keeps only files drops `dump`. Sort the names, so the result is the same every time:
+So a loop that keeps only files skips `dump`. Sort the names, so the result is the same every time:
 
 ```python
 import os
@@ -62,7 +62,7 @@ print(len(names), names[0], names[-1])
 11 SH010_comp_v002.1001.exr notes.txt
 ```
 
-`os.listdir` doesn't look inside subfolders. A tool that only checks the delivery folder itself should stay that way: a subfolder of old renders isn't part of the delivery.
+`os.listdir` doesn't look inside subfolders. That is right for a tool that checks only the delivery folder itself: a subfolder of old renders (images a program produced earlier) isn't part of the delivery.
 
 Here is the same loop with one change. It gives no error, but it returns an empty list:
 
@@ -86,7 +86,7 @@ for name in os.listdir(folder):
 
 ??? success "Answer"
 
-    Text sorts by character code, and every uppercase letter comes before every lowercase one. `S` is uppercase, `n` is lowercase. The order is consistent, which is what a report needs, but it isn't alphabetical in the everyday sense.
+    Text sorts by character code, and every uppercase letter comes before every lowercase one. `S` is uppercase, `n` is lowercase. The order is the same every time, which is what a report needs, but it isn't alphabetical in the everyday sense.
 
 ## Assignment
 

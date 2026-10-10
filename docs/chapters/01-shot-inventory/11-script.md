@@ -35,7 +35,7 @@ work/args.py
 
 ## `main` returns a status
 
-Put the work in a `main(args)` function that takes those words and **returns** a number, the program's **exit code**: `0` means everything went fine, anything else means a problem, and `2` usually means the command was used wrong. Python also exits with `1` when a script stops on an uncaught error. So `1` from a script that uses its own codes can mean either result, and only the traceback tells them apart.
+Put the work in a `main(args)` function that takes those words and **returns** a number, the program's **exit code**: `0` means everything went fine, anything else means a problem, and `2` usually means the command was used wrong. Python also exits with `1` when a script stops on an uncaught error. So `1` from a script that uses its own codes can mean either the script's own result or an uncaught error. Only the traceback, the error report Python prints, shows which one.
 
 `count-frames` in the usage message is the name a coordinator would type once the tool is installed. For now, you run the file with `uv run`.
 
@@ -70,11 +70,11 @@ if __name__ == "__main__":
     sys.exit(main(args))
 ```
 
-`__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and hands `main`'s number to the terminal as the exit code, where other programs can read it. The name `main` is a habit: Python runs it only because the guard calls it.
+`__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and passes `main`'s number to the terminal as the exit code, where other programs can read it. The name `main` is a habit: Python runs it only because the guard calls it.
 
 ![Pass arguments to a script, run a prepared image counter successfully and without arguments, inspect statuses 0 and 2, then import it without running the counter.](../../assets/script-loop.gif)
 
-The counter in the recording is already implemented. Its printed answer and exit code are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard keeps the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit code. In PowerShell, use `$LASTEXITCODE` instead.
+The counter in the recording is already implemented. Its printed answer and exit code are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard stops the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit code. In PowerShell, use `$LASTEXITCODE` instead.
 
 Once your own counter passes its checks, you can repeat the recording from the `module-0` folder:
 

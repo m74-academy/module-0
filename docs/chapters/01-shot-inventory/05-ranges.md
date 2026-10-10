@@ -22,7 +22,7 @@ range(1001, 1005)
 
 `range(start, stop)` stops *before* `stop`. Visual-effects ranges include the last frame, so pass `last + 1` as `stop`.
 
-`range()` is not a list: it hands out the numbers one at a time. `list()` collects them, which is why the examples wrap it.
+`range()` is not a list: it gives the numbers one at a time. `list()` collects them, which is why the examples put `range()` inside `list()`.
 
 !!! question "Think"
 

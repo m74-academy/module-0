@@ -7,7 +7,7 @@ tags:
 
 # Lesson 1.2 — Building Names with f-strings
 
-Before Python can check a folder, it needs to know which names to look for. Those names are built from a few facts: shot, task, version, frame. Get one character wrong — a missing zero or a missing dot — and a perfectly good frame looks "missing".
+Before Python can check a folder, it needs to know which names to look for. Those names are built from a few facts: shot, task, version, frame. If one character is wrong, such as a missing zero or a missing dot, a frame that is there looks "missing".
 
 ## Values inside text
 
@@ -24,7 +24,7 @@ SH010_comp
 
 ## Padding numbers
 
-Frame `7` is saved as `0007`, so every frame up to `9999` has the same four-digit width. A **format spec** after a colon asks for that. Read `{frame:04d}` from left to right:
+Frame `7` is saved as `0007`, so every frame up to `9999` has the same four-digit width. A **format spec** (format specification) after a colon asks for that. Read `{frame:04d}` from left to right:
 
 ```text
 {frame:04d}
@@ -90,7 +90,7 @@ Open `src/chapter_01/lesson_02.py`.
 
 - `version` and `frame` are numbers. Pad the version to 3 digits and the frame to 4.
 - `extension` includes its dot, such as `".exr"`.
-- Everything before the frame number is the `sequence_name` of item 2, so you can build on it.
+- Everything before the frame number is the `sequence_name` of item 2, so you can reuse it.
 
 > Expected: `frame_filename("SH010", "comp", 2, 7, ".exr")` → `"SH010_comp_v002.0007.exr"`
 

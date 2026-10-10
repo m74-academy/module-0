@@ -28,7 +28,7 @@ print(sorted(names, key=frame_number))
 
 `sorted()` calls `frame_number` on each name and compares the numbers it gets back. The names come back unchanged, in the order of their frame numbers. `rsplit(".", 2)` is the split from [Lesson 1.3](03-splitting.md), so a name with an extra dot, such as `SH010_comp_v002.denoise.1001.exr`, still gives the frame.
 
-A key used once doesn't need a name. `lambda` writes the same function in place:
+A key used once doesn't need a name. `lambda` writes the same function right where you use it:
 
 ```python
 names = ["a.10.exr", "a.9.exr", "a.100.exr"]
@@ -70,7 +70,24 @@ print(sorted(names, key=lambda name: name.rsplit(".", 2)[1]))
 
 ## A new list, not a changed one
 
-`sorted()` returns a new list and leaves the original alone. A list's own `.sort()` method changes that list in place and returns `None`.
+`sorted()` returns a new list and doesn't change the original. A list's own `.sort()` method works **in place**: it changes the list itself, and returns `None` instead of a list.
+
+```python
+frames = [1003, 1001, 1002]
+print(sorted(frames), frames)
+print(frames.sort(), frames)
+```
+
+```text
+[1001, 1002, 1003] [1003, 1001, 1002]
+None [1001, 1002, 1003]
+```
+
+The first line gets a new sorted list and leaves `frames` as it was. The second sorts `frames` itself, and the call gives back `None`.
+
+!!! warning "Common trap"
+
+    `frames = frames.sort()` throws your list away: `.sort()` sorts it, then returns `None`, and `frames` now holds `None`. Use `frames.sort()` on its own line to sort the list itself, or `frames = sorted(frames)` to get a sorted copy.
 
 !!! question "Think"
 

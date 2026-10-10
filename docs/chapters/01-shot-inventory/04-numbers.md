@@ -21,7 +21,7 @@ print(int(frame) + 1)
 
 With text, `+` joins. `int()` turns the text into a number, and then `+` adds. `"1001" + 1` raises a `TypeError`: Python won't mix text and a number, so convert first. `int("0007")` is `7`: the zeros disappear, and you add them back with a format spec when you build a name. `str()` goes the other way: `str(7)` gives `"7"`.
 
-A shot such as `"SH010"` starts with letters, so `int("SH010")` raises a `ValueError`. Cut the letters off first with a **slice**: `shot[2:]` means "from the third character to the end".
+A shot such as `"SH010"` starts with letters, so `int("SH010")` raises a `ValueError`. Remove the letters first with a **slice**: `shot[2:]` means "from the third character to the end".
 
 ```python
 shot = "SH010"

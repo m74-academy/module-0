@@ -4,7 +4,7 @@ icon: lucide/book-open
 
 # Lesson 1.8 — Dictionaries: Grouping by Sequence
 
-The folder is one long list of names from several sequences. To check each sequence on its own, you first sort the names into groups: all the `SH010_comp_v002` frames together, all the `SH020_comp_v001` frames together. A **dictionary** maps each group's name to its contents.
+The folder is one long list of names from several sequences. To check each sequence on its own, you first put the names into groups: all the `SH010_comp_v002` frames together, all the `SH020_comp_v001` frames together. A **dictionary** maps each group's name to its contents.
 
 ## Building groups
 

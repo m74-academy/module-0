@@ -8,7 +8,11 @@ Every term here is also explained in the lesson that first uses it; the link tak
 
 ### Coordinator
 
-The production person who tracks which shots and frames have arrived and what is still missing. The tools in this module report to them. [Sorting Frames as Numbers](chapters/01-shot-inventory/07-sorting.md)
+The production person who tracks which shots and frames have arrived and what is still missing. The tools in this module write their reports for them. [Sorting Frames as Numbers](chapters/01-shot-inventory/07-sorting.md)
+
+### Delivery
+
+Work handed over to the next person: an artist's new version of a shot, or a batch of frame files. Each delivery of the same work gets the next version. [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
 
 ### Dictionary
 
@@ -44,7 +48,7 @@ A Python collection that holds each value once and can be compared with another:
 
 ### Shot
 
-One continuous piece of a film, named such as `SH010`. [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
+One continuous piece of a film, with a name such as `SH010`. [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
 
 ### Task
 

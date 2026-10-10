@@ -6,7 +6,7 @@ tags:
 
 # Lesson 1.10 — JSON as Memory
 
-A report printed in the terminal is gone when the window closes. A note in a text file is memory for people, but a program can't read "SH010 comp is missing 1003" reliably. **JSON** is memory that outlives the program, for people *and* programs: plain text, readable in any editor, with a structure every language can load.
+A report printed in the terminal is gone when the window closes. A note in a text file is memory for people, but a program can't read "SH010 comp is missing 1003" reliably. **JSON** is memory that stays after the program ends, for people *and* programs: plain text, readable in any editor, with a structure every programming language can load.
 
 !!! question "Think"
 

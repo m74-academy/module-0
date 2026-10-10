@@ -6,9 +6,9 @@ tags:
 
 # Lesson 1.3 — Splitting a Name into Parts
 
-The folder gives you names, not facts. To group files or find gaps, you need the parts back: which shot, which sequence, which frame. Python strings come with **methods** that take text apart.
+The folder gives you names, not facts. To group files or find gaps, you need the parts back: which shot, which sequence, which frame. Python strings come with **methods** that split text into parts.
 
-## split and rsplit
+## `split` and `rsplit`
 
 `split(".")` cuts at every dot and returns a list of the pieces:
 
@@ -55,22 +55,22 @@ print("SH010_comp_v002.denoise.1001.exr".rsplit(".", 2))
 
 ??? success "Answer"
 
-    `['notes', 'txt']`: only two pieces. Asking for index `2` raises an `IndexError`. Before taking a name apart, check that it has the shape you expect: `len(parts)` tells you how many pieces you got.
+    `['notes', 'txt']`: only two pieces. Asking for index `2` raises an `IndexError`. Before splitting a name into parts, check that it has the number of pieces you expect: `len(parts)` tells you how many pieces you got.
 
 ## Naming the parts with a dictionary
 
 A list numbers its pieces; a **dictionary** names them. Each entry pairs a key with a value, and you read a value by its key:
 
 ```python
-plate = {"shot": "SH010", "fps": 24}
-print(plate["shot"], plate["fps"])
+info = {"shot": "SH010", "fps": 24}
+print(info["shot"], info["fps"])
 ```
 
 ```text
 SH010 24
 ```
 
-Lesson 1.8 builds dictionaries step by step; for now, writing one out as above is enough.
+Here `"fps"` is frames per second: how many frames make one second of film. Lesson 1.8 builds dictionaries step by step; for now, writing one out as above is enough.
 
 ## Checking the end
 

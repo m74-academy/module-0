@@ -3,6 +3,14 @@
 What changed in each release of Module 0. Get a new release with the steps in
 [Updates](README.md#updates). The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.2.7] — 2026-10-11
+
+### Changed
+
+- Every page reads more easily if English is your second language: idioms such as "by eye" and "take apart" are now plain words, terms such as *deliver*, *format spec*, and *shot* are defined where they first appear, and words that meant two things, such as "sort" for grouping, now mean one. No check or rule changed.
+- Lesson 1.7 shows `sorted()` and `.sort()` side by side: `.sort()` changes the list in place and returns `None`, with a Common trap for `frames = frames.sort()`.
+- Lesson 1.3's dictionary example names its variable `info` and says what `"fps"` means. The glossary adds *Delivery*.
+
 ## [0.2.6] — 2026-10-10
 
 ### Added

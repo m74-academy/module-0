@@ -13,4 +13,4 @@ Begin with [Chapter 1 — Shot Inventory](chapters/01-shot-inventory/README.md).
 
 ## Course updates
 
-When `academy health` says a newer release is available, run `academy update`. If the release changes a lesson you already solved, it keeps your code and lists that lesson: read `CHANGELOG.md`, then run the lesson's checks again.
+When `academy health` says a newer release is available, run `academy update`. If the release changes a lesson you already solved, `academy update` keeps your code and lists that lesson: read `CHANGELOG.md`, then run the lesson's checks again.

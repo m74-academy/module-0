@@ -2,7 +2,7 @@
 
 A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy): eleven short lessons that teach the Python behind a small visual-effects tool, and a project where you build it. You read a lesson, write a function, and run a check that tells you whether it works. That loop is how M74 Academy lessons work; Module 0 lets you try it on your own computer, with no instructor and no deadline.
 
-**What you build:** *Shot Inventory*, a script that looks at a messy folder of image frames from several shots, groups the files into sequences, finds the frames that are missing, prints a report, and saves it as JSON. It reads the folder and never changes it.
+**What you build:** *Shot Inventory*, a script that looks at a messy folder of image frames from several shots, groups the files into image sequences, finds the frames that are missing, prints a report, and saves it as JSON. It reads the folder and never changes it.
 
 **What you need:** a computer with macOS, Windows, or Linux; a free [GitHub account](https://github.com/signup); and some Python basics: variables, `if`, `for`, lists, and functions. No visual-effects experience.
 

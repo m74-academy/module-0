@@ -5,6 +5,15 @@ What changed in each release of Module 0. Get a new release with the steps in
 
 ## [Unreleased]
 
+## [0.3.1] — 2026-10-12
+
+### Changed
+
+- The capstone screenshot shows the current report keys, with the extension (`SH010_comp_v002.exr`).
+- Lesson 1.8's assignment points to your Lesson 1.3 `split_frame_name` before the rules, not after them.
+- The capstone says which files go in `"other"`: names `split_frame_name` rejects and names whose frame part isn't digits. Nothing to redo.
+- Lesson 1.10, the glossary, and the chapter and module READMEs use the image sequence key with its extension and say *image sequence*.
+
 ## [0.3.0] — 2026-10-12
 
 ### Added

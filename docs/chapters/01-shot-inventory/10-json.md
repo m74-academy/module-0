@@ -36,7 +36,7 @@ True
 
 !!! question "Think"
 
-    Two scripts look for missing frames. One takes the number after the word `missing` in the terminal line `SH010_comp_v002: 1001-1004 (missing 1003)`. The other loads the JSON. Then the report wording changes to `(1003 missing)`. Which script breaks, and why?
+    Two scripts look for missing frames. One takes the number after the word `missing` in the terminal line `SH010_comp_v002.exr: 1001-1004 (missing 1003)`. The other loads the JSON. Then the report wording changes to `(1003 missing)`. Which script breaks, and why?
 
 ??? success "Answer"
 

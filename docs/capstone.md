@@ -47,7 +47,7 @@ inventory("docs/chapters/01-shot-inventory/sample/dump")
 - `"frames"` is the range from the image sequence's first frame to its last, written as in [Lesson 1.7](chapters/01-shot-inventory/07-sorting.md).
 - `"missing"` lists the frames missing *between* the first and the last, sorted.
 - `"count"` is the number of distinct frames in the image sequence.
-- Every other file goes in `"other"`, sorted. Subfolders are skipped.
+- Every other file goes in `"other"`, sorted: names `split_frame_name` rejects, and names whose frame part isn't digits. Subfolders are skipped.
 
 **2. `report_lines(result)`** turns that dict into lines for a person, image sequences in sorted order, then the other files:
 
@@ -102,7 +102,7 @@ SH020_comp_v001.exr: 998-1001 (complete)
 Other: SH020_preview.mov, notes.txt
 ```
 
-![A completed Shot Inventory run in VS Code: shots.json above the terminal report, with frame 1003 missing from SH010_comp_v002.exr and exit code 1.](assets/shot-inventory-result.png)
+![A completed Shot Inventory run in an editor: shots.json above the terminal report, with frame 1003 missing from SH010_comp_v002.exr and exit code 1.](assets/shot-inventory-result.png)
 
 The screenshot shows a completed implementation. The terminal report is for a person; `shots.json` stores the same facts for another program. Frame `1003` appears in both as missing. The exit code is `1` because the tool found missing frames, not because it failed to run.
 

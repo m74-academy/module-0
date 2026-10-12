@@ -10,10 +10,10 @@ A visual-effects studio produces thousands of image files a day, and their names
 2. [Building Names with f-strings](02-f-strings.md) — build a frame filename from its parts, with padding.
 3. [Splitting a Name into Parts](03-splitting.md) — split a filename into its parts again with string methods.
 4. [Numbers from Text](04-numbers.md) — turn `"1001"` and `"v002"` into numbers you can calculate with.
-5. [Frame Ranges and List Comprehensions](05-ranges.md) — list every frame a sequence should have.
+5. [Frame Ranges and List Comprehensions](05-ranges.md) — list every frame an image sequence should have.
 6. [Sets: Finding Missing Frames](06-sets.md) — compare what should be there with what is.
 7. [Sorting Frames as Numbers](07-sorting.md) — put frames in order, and write a range as `1001-1004`.
-8. [Dictionaries: Grouping by Sequence](08-grouping.md) — put a mixed list of names into groups, one per sequence.
+8. [Dictionaries: Grouping by Sequence](08-grouping.md) — put a mixed list of names into groups, one per image sequence.
 9. [Listing a Folder with `os`](09-folders.md) — read real filenames from a folder.
 10. [JSON as Memory](10-json.md) — save results in a file that people and programs can read.
 11. [A Script You Can Run](11-script.md) — turn functions into a command.

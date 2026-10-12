@@ -6,7 +6,7 @@ from typing import Any
 
 
 def inventory(folder: str) -> dict[str, Any]:
-    """Return the sequences (frames, missing, count) and other files directly inside folder."""
+    """Return the image sequences (frames, missing, count) and other files directly inside folder."""
     pass
 
 

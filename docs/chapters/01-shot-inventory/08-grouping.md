@@ -4,7 +4,7 @@ icon: lucide/book-open
 
 # Lesson 1.8 — Dictionaries: Grouping by Sequence
 
-The folder is one long list of names from several image sequences. To check each image sequence on its own, you first put the names into groups: all the `SH010_comp_v002` `.exr` frames together, all the `SH020_comp_v001` `.exr` frames together. A **dictionary** maps each image sequence's name, its **key**, to a list of its frames. [Lesson 1.3](03-splitting.md) wrote one out by hand; here a loop builds it.
+The folder is one long list of names from several image sequences. To check each image sequence on its own, you first put the names into groups: all the `SH010_comp_v002` `.exr` frames together, all the `SH020_comp_v001` `.exr` frames together. A **dictionary** maps each image sequence's **key**, its name plus its extension such as `SH010_comp_v002.exr`, to a list of its frames. [Lesson 1.3](03-splitting.md) wrote one out by hand; here a loop builds it.
 
 ## Building groups
 
@@ -35,7 +35,7 @@ The f-string from [Lesson 1.2](02-f-strings.md) puts the name back together with
 ```mermaid
 flowchart TD
     name["Next name"] --> split["sequence, frame, extension = name.rsplit('.', 2)"]
-    split --> key["key: the image sequence name, without the frame number"]
+    split --> key["key: name plus extension, without the frame number"]
     key --> check{"if key not in groups"}
     check -- "not in: first frame of this image sequence" --> start["groups[key] = []"]
     check -- "already in" --> append["groups[key].append(int(frame))"]
@@ -91,12 +91,12 @@ Open `src/chapter_01/lesson_08.py`.
 
 **`group_by_sequence(names)`** returns a dict from each image sequence's key, the file name without its frame number, to its frame numbers, sorted from smallest to largest.
 
-- Only frame images count: names that your [Lesson 1.3](03-splitting.md) `split_frame_name` accepts. Skip every other name, such as `notes.txt` and `SH020_preview.0001.mov`.
+Start from your [Lesson 1.3](03-splitting.md) function: `from chapter_01.lesson_03 import split_frame_name`. It returns `None` for a name to skip; otherwise, read `parts["sequence"]`, `parts["frame"]`, and `parts["extension"]`, which already starts with its dot. The rules:
+
+- Only frame images count: names that `split_frame_name` accepts. Skip every other name, such as `notes.txt` and `SH020_preview.0001.mov`.
 - Skip a name whose frame part isn't digits, such as `SH010_comp_v002.abcd.exr`.
 - Each extension is its own image sequence: `a.0007.exr` and `a.0007.dpx` give `{"a.exr": [7], "a.dpx": [7]}`. Keep the extension as written, so `A.0001.EXR` goes under `"A.EXR"`.
 - List each frame of an image sequence once, even when two names give the same frame, such as `a.0007.exr` and `a.7.exr`; a set from [Lesson 1.6](06-sets.md) removes repeats.
-
-You can reuse your [Lesson 1.3](03-splitting.md) function: `from chapter_01.lesson_03 import split_frame_name`. It returns `None` for a name to skip; otherwise, read `parts["sequence"]`, `parts["frame"]`, and `parts["extension"]`, which already starts with its dot.
 
 > Expected: `group_by_sequence(["SH010_comp_v002.1002.exr", "notes.txt", "SH010_comp_v002.1001.exr"])` → `{"SH010_comp_v002.exr": [1001, 1002]}`
 

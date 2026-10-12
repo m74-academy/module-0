@@ -36,7 +36,7 @@ Writing a frame number with at least a fixed number of digits, filled with leadi
 
 ### Image sequence
 
-All the frames of one shot, task, and version in one file type. The part of a frame's name before the dot and frame number, such as `SH010_comp_v002`, is its name; the extension gives the type, so `.exr` and `.dpx` frames with the same name are two image sequences, and so are `.exr` and `.EXR`. Lesson 1.8 keys each one by its name plus its extension, such as `SH010_comp_v002.exr`. In a studio, "sequence" alone usually means a group of shots, so this course says "image sequence". [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
+All the frames of one shot, task, and version in one file type. The part of a frame's name before the dot and frame number, such as `SH010_comp_v002`, is its name; the extension gives the type, so `.exr` and `.dpx` frames with the same name are two image sequences, and so are `.exr` and `.EXR`, because the extension counts as written. [Lesson 1.8](chapters/01-shot-inventory/08-grouping.md) keys each one by its name plus its extension, such as `SH010_comp_v002.exr`. In a studio, "sequence" alone usually means a group of shots, so this course says "image sequence". [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
 
 ### JSON
 

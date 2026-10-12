@@ -23,7 +23,10 @@ def test_version_number(version: str, expected: int):
     assert result == expected and isinstance(result, int)
 
 
-@pytest.mark.parametrize("version, expected", [("v002", "v003"), ("v009", "v010"), ("v099", "v100"), ("v999", "v1000")])
+@pytest.mark.parametrize("version, expected", [
+    ("v002", "v003"), ("v009", "v010"), ("v099", "v100"), ("v999", "v1000"),
+    pytest.param("v1", "v002", id="short version pads to three digits"),
+])
 def test_next_version(version: str, expected: str):
     """Add one, keep at least three digits."""
     assert next_version(version) == expected

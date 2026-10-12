@@ -19,9 +19,11 @@ print(int(frame) + 1)
 1002
 ```
 
-With text, `+` joins. `int()` turns the text into a number, and then `+` adds. `"1001" + 1` raises a `TypeError`: Python won't mix text and a number, so convert first. `int("0007")` is `7`: the zeros disappear, and you add them back with a format spec when you build a name. `str()` goes the other way: `str(7)` gives `"7"`.
+With text, `+` joins. `int()` turns the text into a number, and then `+` adds. `"1001" + 1` raises a `TypeError`: Python won't mix text and a number, so convert first.
 
-A shot such as `"SH010"` starts with letters, so `int("SH010")` raises a `ValueError`. Remove the letters first with a **slice**: `shot[2:]` means "from the third character to the end".
+`int("0007")` is `7`: the zeros disappear, and you add them back with a format spec when you build a name. `str()` goes the other way: `str(7)` gives `"7"`.
+
+A shot such as `"SH010"` starts with letters, so `int("SH010")` raises a `ValueError`. Remove the letters first with a **slice**: `shot[2:]` means "from position 2, the third character, to the end", because positions count from 0.
 
 ```python
 shot = "SH010"
@@ -33,6 +35,8 @@ print(number, f"SH{number + 10:03d}")
 10 SH020
 ```
 
+A version has one letter to remove, so the slice starts at position 1: `int("v002"[1:])` is `2`.
+
 !!! question "Think"
 
     As text, is `"999"` smaller than `"1000"`? Why?
@@ -43,11 +47,11 @@ print(number, f"SH{number + 10:03d}")
 
 !!! question "Think"
 
-    A tool takes the frame as "the four characters before `.exr`" (`name[-8:-4]`). It gives `1001` for `SH010_comp_v002.1001.exr`. What does it give for `SH010_comp_v002.10001.exr`, and why?
+    A tool takes the frame as "the four characters before `.exr`" (`name[-8:-4]`). Negative positions count from the end of the text, so `-4` is where `.exr` starts and the slice stops just before it, so `[-8:-4]` is the four characters before `.exr`. It gives `1001` for `SH010_comp_v002.1001.exr`. What does it give for `SH010_comp_v002.10001.exr`, and why?
 
 ??? success "Answer"
 
-    `1`. The four characters are `"0001"`. Padding sets a minimum width (Lesson 1.2), so frame `10001` keeps all five digits. Take the part between the last two dots, as in Lesson 1.3, and the frame can have any width. The same rule makes `f"v{1000:03d}"` give `v1000`.
+    Frame `1`. The four characters are `"0001"`, and as a number that's `1`, not `10001`. Padding sets a minimum width ([Lesson 1.2](02-f-strings.md)), so frame `10001` keeps all five digits. Take the part between the last two dots, as in [Lesson 1.3](03-splitting.md), and the frame can have any width. The same rule makes `f"v{1000:03d}"` give `v1000`.
 
 ## Assignment
 
@@ -56,15 +60,15 @@ Open `src/chapter_01/lesson_04.py`.
 **1. `frame_number(name)`** returns the frame of a filename as a number.
 
 - The frame is the part between the last two dots, with any number of digits.
-- Some names have extra dots, as in Lesson 1.3.
+- Some names have extra dots, as in [Lesson 1.3](03-splitting.md).
 
 > Expected: `frame_number("SH010_comp_v002.0007.exr")` → `7`
 
-**2. `version_number(version)`**: the version as a number.
+**2. `version_number(version)`** returns the version as a number.
 
 > Expected: `version_number("v002")` → `2`
 
-**3. `next_version(version)`**: the next version, with at least three digits.
+**3. `next_version(version)`** returns the next version, with at least three digits.
 
 > Expected: `next_version("v999")` → `"v1000"`
 
@@ -73,3 +77,9 @@ Check your work:
 ```console
 academy test 1 4
 ```
+
+## Further reading
+
+- [`int()`](https://docs.python.org/3/library/functions.html#int) (Python reference): which text `int()` accepts, and the `base` argument.
+- [Text](https://docs.python.org/3/tutorial/introduction.html#text) (Python tutorial): indexing and slicing strings, with negative positions and the `IndexError` for a position that doesn't exist.
+- [Comparing Sequences and Other Types](https://docs.python.org/3/tutorial/datastructures.html#comparing-sequences-and-other-types) (Python tutorial): how Python compares strings one character at a time, which makes `"999"` come after `"1000"`.

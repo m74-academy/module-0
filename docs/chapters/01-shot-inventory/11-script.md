@@ -31,11 +31,11 @@ work/args.py
 ['SH010', 'comp']
 ```
 
-`sys.argv` is the list of words on the command line, starting with the script itself. `script, *args = sys.argv` unpacks it as in Lesson 1.8: `script` gets the first word, and the `*` in front of `args` collects all the rest into a list, which is empty when you type no arguments.
+`sys.argv` is the list of words on the command line, starting with the script itself. `script, *args = sys.argv` unpacks that list into names, like the three names in [Lesson 1.8](08-grouping.md). The `*` is new: `script` gets the first word, and `*args` collects all the rest into a list, which is empty when you type no arguments. Read it as "the first word, then the rest".
 
 ## `main` returns a status
 
-Put the work in a `main(args)` function that takes those words and **returns** a number, the program's **exit code**: `0` means everything went fine, anything else means a problem, and `2` usually means the command was used wrong. Python also exits with `1` when a script stops on an uncaught error. So `1` from a script that uses its own codes can mean either the script's own result or an uncaught error. Only the traceback, the error report Python prints, shows which one.
+Put the work in a `main(args)` function that takes those words and **returns** a number, the program's **exit code**: `0` means everything went fine, and anything else means a problem. This tool returns `2` when the command was used wrong. The capstone adds one more code.
 
 `count-frames` in the usage message is the name a coordinator would type once the tool is installed. For now, you run the file with `uv run`.
 
@@ -72,11 +72,22 @@ if __name__ == "__main__":
 
 `__name__` is `"__main__"` only when you run the file directly. When the checks import the file, it holds the module's name instead, so nothing runs. `sys.exit` ends the program and passes `main`'s number to the terminal as the exit code, where other programs can read it. The name `main` is a habit: Python runs it only because the guard calls it.
 
+```mermaid
+flowchart TD
+    run["Run the file from the terminal"] --> guard{"__name__ == '__main__'?"}
+    load["Import: import chapter_01.lesson_11, as the checks do"] --> guard
+    guard -- "yes, run directly" --> argv["script, *args = sys.argv"]
+    argv --> main["main(args) returns 0 or 2"]
+    main --> exit["sys.exit(the number)"]
+    exit --> shell["The terminal holds it: echo $? prints it"]
+    guard -- "no, imported" --> nothing["Nothing runs"]
+```
+
 ![Pass arguments to a script, run a prepared image counter successfully and without arguments, inspect statuses 0 and 2, then import it without running the counter.](../../assets/script-loop.gif)
 
 The counter in the recording is already implemented. Its printed answer and exit code are separate: `9 image files` is for the person; `0` tells another program the run succeeded. With no folder argument, it prints usage and exits with `2`. Importing it prints neither because the guard stops the command from running. The recording uses Bash, where `echo $?` shows the previous command's exit code. In PowerShell, use `$LASTEXITCODE` instead.
 
-Once your own counter passes its checks, you can repeat the recording from the `module-0` folder:
+Once your own counter passes its checks, you can repeat the recording from the `module-0` folder. `-m` runs the file by its import name, `chapter_01.lesson_11`, the same name the checks import, instead of by its path:
 
 ```console
 uv run python -m chapter_01.lesson_11
@@ -113,17 +124,22 @@ The first command prints `usage: count-frames FOLDER`, and `echo $?` prints `2`.
 
 ## Assignment
 
-Open `src/chapter_01/lesson_11.py` and write `main(args)` for a command that counts image files:
+Open `src/chapter_01/lesson_11.py` and write `main(args)` for a command that counts image files, then add the guard.
+
+**`main(args)`** prints one line and returns the exit code:
 
 | Situation | Prints | Returns |
 |---|---|---|
 | Not exactly one argument | `usage: count-frames FOLDER` | `2` |
-| The argument isn't an existing folder | `error: FOLDER is not a folder` | `2` |
+| The argument isn't an existing folder | `error: <folder> is not a folder` | `2` |
 | Otherwise | `N image files`, counting `.exr` and `.dpx` directly inside, in any letter case | `0` |
 
-You can reuse your Lesson 1.9 `image_files` to count: `from chapter_01.lesson_09 import image_files`. Then add the guard, so running the file calls `main` and exits with its result.
+- The `usage:` line is printed exactly as shown, with the word `FOLDER`.
+- In the `error:` line, `<folder>` stands for the argument as the user typed it, and `N` in the last row is the count.
+- You can reuse your [Lesson 1.9](09-folders.md) `image_files` to count: `from chapter_01.lesson_09 import image_files`.
+- The guard makes running the file call `main` and exit with its result.
 
-> Expected on the sample folder: prints `9 image files`, returns `0`
+> Expected: `main(["gone"])` prints `error: gone is not a folder` → `2`
 
 Check your work:
 
@@ -141,4 +157,9 @@ uv run python -m chapter_01.lesson_11 docs/chapters/01-shot-inventory/sample/dum
 9 image files
 ```
 
-`-m` runs the file by its import name, `chapter_01.lesson_11`, the same name the checks import, instead of by its path.
+## Further reading
+
+- [`__main__`: Top-level code environment](https://docs.python.org/3/library/__main__.html#idiomatic-usage) (Python reference): why the guard and a `main` function, with `sys.exit(main())` as the usual last line.
+- [`sys.argv`](https://docs.python.org/3/library/sys.html#sys.argv) and [`sys.exit`](https://docs.python.org/3/library/sys.html#sys.exit) (Python reference): the list of words and the function that ends the program with a code.
+- [Runtime Environment: Returning Status](https://pymotw.com/3/sys/runtime.html#returning-status) (Python Module of the Week): a short script that exits with a code you choose, read back with `echo $?`.
+- [Exit status](https://en.wikipedia.org/wiki/Exit_status#Shell_and_scripts) (Wikipedia): the zero-for-success convention that other programs follow.

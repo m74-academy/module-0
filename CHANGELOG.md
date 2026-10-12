@@ -3,6 +3,31 @@
 What changed in each release of Module 0. Get a new release with the steps in
 [Updates](README.md#updates). The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+## [0.3.0] — 2026-10-12
+
+### Added
+
+- **Start here** links two new guides for people new to visual effects: [What a VFX pipeline is](https://github.com/m74-academy/community/blob/main/guides/industry/vfx-pipeline.md) and [What a pipeline TD does](https://github.com/m74-academy/community/blob/main/guides/industry/pipeline-td.md).
+- Every lesson ends with a short Further reading list, and the grouping loop (Lesson 1.8), the script (Lesson 1.11), and the Shot Inventory pipeline have a diagram.
+- Lesson 1.8 teaches `isdigit()` in the lesson itself, with a Think question on what a frame such as `-001` would do to the report.
+
+### Changed
+
+- **Each extension is its own image sequence.** `.exr` and `.dpx` frames with one name are two image sequences, and so are `.exr` and `.EXR`. Lesson 1.8's `group_by_sequence` keys each one by its name plus its extension (`{"a.exr": [7], "a.dpx": [7]}`), and the Shot Inventory report and `shots.json` use the same keys (`SH010_comp_v002.exr`). Lesson 1.1 and the glossary say *image sequence*, because studios use "sequence" for a group of shots. **If you already solved Lesson 1.8 or the capstone, update your key and run `academy test 1` again.**
+- New checks an earlier solution may fail:
+  - Lesson 1.4: `next_version("v1")` must give `v002`.
+  - Lesson 1.7: a list that mixes two image sequences sorts by frame only.
+  - Lesson 1.8: upper-case extensions count as images; a frame such as `-001`, ` 12`, or `+13` is skipped; two paddings of one frame (`a.0007.exr`, `a.7.exr`) count once.
+  - Capstone: the exit code is `1` when any image sequence has a hole, not only the first, and `0` when the folder holds only complete image sequences and other files; a frame padded two ways counts once.
+- Clearer pages throughout: Think questions that no longer give their answer away, a `range` that can be looped over again (Lesson 1.5), a runnable `endswith` example (Lesson 1.3), `import json` in Lesson 1.10's broken example, star unpacking taught where Lesson 1.11 uses it, and an unambiguous `error: <folder> is not a folder` line with an example.
+- Lesson 1.11's note on exit code `1` moved to the capstone, which uses it.
+
+### Known issue
+
+- The capstone's screenshot still shows the old report keys, without the extension (`SH010_comp_v002` instead of `SH010_comp_v002.exr`). The text above it is correct; a later release updates the image.
+
 ## [0.2.8] — 2026-10-11
 
 ### Changed

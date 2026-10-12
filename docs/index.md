@@ -4,7 +4,7 @@ icon: lucide/house
 
 # Module 0 — Shot Inventory
 
-New here? [Install the software](https://github.com/m74-academy/community/blob/main/guides/install-uv-and-git.md), then [set up the module](https://github.com/m74-academy/community/blob/main/guides/fork-clone-setup.md), and run `academy health` to check your setup.
+New here? [Install the software](https://github.com/m74-academy/community/blob/main/guides/install-uv-and-git.md), then [set up the module](https://github.com/m74-academy/community/blob/main/guides/fork-clone-setup.md), and run `academy health` to check your setup. New to visual effects? Two short guides explain [what a VFX pipeline is](https://github.com/m74-academy/community/blob/main/guides/industry/vfx-pipeline.md) and [what a pipeline TD does](https://github.com/m74-academy/community/blob/main/guides/industry/pipeline-td.md). Read them before your first lesson, or alongside the first chapter.
 
 Begin with [Chapter 1 — Shot Inventory](chapters/01-shot-inventory/README.md).
 

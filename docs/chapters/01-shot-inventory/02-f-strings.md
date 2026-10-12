@@ -24,7 +24,7 @@ SH010_comp
 
 ## Padding numbers
 
-Frame `7` is saved as `0007`, so every frame up to `9999` has the same four-digit width. A **format spec** (format specification) after a colon asks for that. Read `{frame:04d}` from left to right:
+Frame `7` is saved as `0007`, so every frame up to `9999` has the same four-digit width. A **format spec** after a colon asks for that. Read `{frame:04d}` from left to right:
 
 ```text
 {frame:04d}
@@ -76,30 +76,36 @@ SH010_comp_v002.   7.exr
 
 !!! question "Think"
 
-    This name has the right width, but a tool still can't find frame `0007`. Which character is missing from the spec?
+    A tool builds the names it looks for with `{frame:4d}`. Which frames that are in the sample folder of [Lesson 1.1](01-names-carry-data.md#the-folder) does it wrongly report missing?
 
 ??? success "Answer"
 
-    The `0`. Without it, `4d` still makes the number 4 characters wide, but fills the empty places with spaces. The name holds `   7`, not `0007`.
+    Only `0998` and `0999` of `SH020_comp_v001`. The tool looks for `SH020_comp_v001. 998.exr`, with a space, and doesn't find it. (It reports 1003 too, but 1003 really is missing.) Frames from 1000 up already fill all four places, so `4d` and `04d` give the same name for them. That is why the bug can hide: most frames still look right.
 
 ## Assignment
 
 Open `src/chapter_01/lesson_02.py`.
 
-**1. `frame_filename(shot, task, version, frame, extension)`** returns the filename for one frame.
+**1. `sequence_name(shot, task, version)`** returns the part every frame of an image sequence shares, with the version padded to 3 digits.
+
+> Expected: `sequence_name("SH010", "comp", 2)` → `"SH010_comp_v002"`
+
+**2. `frame_filename(shot, task, version, frame, extension)`** returns the filename for one frame.
 
 - `version` and `frame` are numbers. Pad the version to 3 digits and the frame to 4.
 - `extension` includes its dot, such as `".exr"`.
-- Everything before the frame number is the `sequence_name` of item 2, so you can reuse it.
+- Everything before the dot and frame number is the `sequence_name` of item 1, so you can reuse it.
 
 > Expected: `frame_filename("SH010", "comp", 2, 7, ".exr")` → `"SH010_comp_v002.0007.exr"`
-
-**2. `sequence_name(shot, task, version)`** returns the part every frame of a sequence shares.
-
-> Expected: `sequence_name("SH010", "comp", 2)` → `"SH010_comp_v002"`
 
 Check your work:
 
 ```console
 academy test 1 2
 ```
+
+## Further reading
+
+- [Formatted string literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals) (Python tutorial): f-strings from the start, with more examples of a width after the colon.
+- [Format Specification Mini-Language](https://docs.python.org/3/library/string.html#format-specification-mini-language) (Python reference): every option after the colon, such as the `0` fill, the width, and `d`.
+- [Python f-string cheat sheet](https://fstring.help/cheat/) (fstring.help): short examples of each format spec with its result, to look one up quickly.

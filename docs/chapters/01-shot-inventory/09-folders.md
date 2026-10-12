@@ -24,7 +24,7 @@ print(len(os.listdir("docs/chapters/01-shot-inventory/sample/dump")))
 11
 ```
 
-`os.listdir` also lists hidden files, whose names start with `.`. Some file browsers don't show them. For example, macOS Finder may add a `.DS_Store` file to a folder you open in it. Then you see `12` here, not `11`.
+`os.listdir` also lists hidden files, whose names start with `.`. Some file browsers don't show them. On a Mac, Finder may add a hidden file called `.DS_Store` to a folder you open in it. If it is there, you see `12` here, not `11`. The third example below then lists `.DS_Store` too.
 
 ## Files, not folders
 
@@ -80,6 +80,8 @@ for name in os.listdir(folder):
 
     `os.path.isfile(name)`. `name` is only a name, such as `notes.txt`. Python looks for it in the folder you run Python in. It isn't there, so `isfile` answers `False` for every name. That is a normal answer, not an error. `path` tells Python which folder to look in.
 
+[Lesson 1.7](07-sorting.md) showed that `sorted()` compares text one character at a time. The same rule decides where `notes.txt` lands.
+
 !!! question "Think"
 
     Why does `notes.txt` sort after every `SH…` name?
@@ -96,7 +98,7 @@ Open `src/chapter_01/lesson_09.py`.
 
 > Expected, for a folder with `b.1002.exr`, `a.1001.EXR`, `notes.txt`, and `old/a.1000.exr`: `list_files(folder)` → `["a.1001.EXR", "b.1002.exr", "notes.txt"]`
 
-**2. `image_files(folder)`**: the same, but only `.exr` and `.dpx` files in any letter case. You can reuse `list_files` and your Lesson 1.3 `is_image`: `from chapter_01.lesson_03 import is_image`.
+**2. `image_files(folder)`**: the same, but only `.exr` and `.dpx` files in any letter case. You can reuse `list_files` and your `is_image` from [Lesson 1.3](03-splitting.md): `from chapter_01.lesson_03 import is_image`. That import uses your own Lesson 1.3 code, so finish Lesson 1.3 first.
 
 > Expected, for the same folder: `image_files(folder)` → `["a.1001.EXR", "b.1002.exr"]`
 
@@ -105,3 +107,10 @@ Check your work:
 ```console
 academy test 1 9
 ```
+
+## Further reading
+
+- [`os.listdir`](https://docs.python.org/3/library/os.html#os.listdir) (Python reference): the full entry, including its note that the order is arbitrary.
+- [`os.path`: Common pathname manipulations](https://docs.python.org/3/library/os.path.html) (Python reference): `join`, `isfile`, `isdir`, and the other path questions you can ask.
+- [`os.path`: Platform-independent Manipulation of Filenames](https://pymotw.com/3/os.path/index.html) (Python Module of the Week): worked examples of building paths and testing files.
+- [`.DS_Store`](https://en.wikipedia.org/wiki/.DS_Store) (Wikipedia): what this hidden macOS file holds and why Finder adds it.

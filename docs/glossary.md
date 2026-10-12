@@ -34,13 +34,13 @@ One still image of a shot. Frames are numbered in order, such as `1001`. [Names 
 
 Writing a frame number with at least a fixed number of digits, filled with leading zeros; a longer number keeps all its digits: frame `7` as `0007`. [Building Names with f-strings](chapters/01-shot-inventory/02-f-strings.md)
 
+### Image sequence
+
+All the frames of one shot, task, and version in one file type. The part of a frame's name before the dot and frame number, such as `SH010_comp_v002`, is its name; the extension gives the type, so `.exr` and `.dpx` frames with the same name are two image sequences, and so are `.exr` and `.EXR`. Lesson 1.8 keys each one by its name plus its extension, such as `SH010_comp_v002.exr`. In a studio, "sequence" alone usually means a group of shots, so this course says "image sequence". [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
+
 ### JSON
 
 A text format for structured data that people and programs can both read. Python reads and writes it with the `json` module. [JSON as Memory](chapters/01-shot-inventory/10-json.md)
-
-### Sequence
-
-All the frames of one shot, task, and version, such as `SH010_comp_v002`: everything in a frame's name before the frame number. [Names Carry Data](chapters/01-shot-inventory/01-names-carry-data.md)
 
 ### Set
 

@@ -8,6 +8,8 @@ A free, self-paced introduction to [M74 Academy](https://github.com/m74-academy)
 
 ## Start here
 
+New to visual effects? Two short guides explain [what a VFX pipeline is](https://github.com/m74-academy/community/blob/main/guides/industry/vfx-pipeline.md) and [what a pipeline TD does](https://github.com/m74-academy/community/blob/main/guides/industry/pipeline-td.md). Read them before your first lesson, or alongside the first chapter.
+
 1. **Install the tools**, once: [`uv`](https://docs.astral.sh/uv/getting-started/installation/), [Git](https://git-scm.com/downloads), the [GitHub CLI](https://cli.github.com/) (then run `gh auth login`), and [VS Code](https://code.visualstudio.com/). Step by step, with every system's commands: [Install the software](https://github.com/m74-academy/community/blob/main/guides/install-uv-and-git.md). Then install the course command:
 
    ```console

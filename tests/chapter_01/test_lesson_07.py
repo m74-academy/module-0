@@ -21,3 +21,9 @@ def test_sort_by_frame():
 def test_format_run(start: int, end: int, expected: str):
     """One frame stays a number; a range becomes start-end."""
     assert format_run(start, end) == expected
+
+
+def test_sort_by_frame_mixed_sequences():
+    """Only the frame decides, even when the names come from two image sequences."""
+    names = ["SH010_comp_v002.1001.exr", "SH020_comp_v001.0998.exr", "SH010_comp_v002.0999.exr"]
+    assert sort_by_frame(names) == ["SH020_comp_v001.0998.exr", "SH010_comp_v002.0999.exr", "SH010_comp_v002.1001.exr"]

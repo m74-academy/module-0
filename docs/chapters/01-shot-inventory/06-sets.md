@@ -29,7 +29,7 @@ print({9, 8, 7})
 {8, 9, 7}
 ```
 
-Small numbers can look sorted by chance; never rely on it. Sort a set when you show it or return it.
+Python printed the values in its own order, not the order you typed. Small numbers can look sorted by chance; never rely on it. Sort a set when you show it or return it.
 
 `{}` on its own is an empty dictionary; an empty set is `set()`.
 
@@ -42,6 +42,14 @@ print(sorted(set(["blue", "red", "blue"])))
 ```text
 ['blue', 'red']
 ```
+
+!!! question "Think"
+
+    The folder has four frames, and four were expected. Can a frame still be missing?
+
+??? success "Answer"
+
+    Yes. If frame 1003 is missing and an unexpected frame 1005 arrived, both counts are four. Comparing counts hides both problems. The next section compares sets, which finds them.
 
 ## Comparing two sets
 
@@ -63,14 +71,6 @@ print(sorted(expected & found))
 
 !!! question "Think"
 
-    The folder has four files and four were expected. Can a frame still be missing?
-
-??? success "Answer"
-
-    Yes, exactly as above: frame 1003 is missing and 1005 is extra, and the counts are equal. Comparing counts hides both problems; comparing sets finds them.
-
-!!! question "Think"
-
     `found` is `[1001, 1001, 1002]`, and frames 1001 to 1003 were expected. The counts match. What does `set(found)` show that `len(found)` hides?
 
 ??? success "Answer"
@@ -81,11 +81,15 @@ print(sorted(expected & found))
 
 Open `src/chapter_01/lesson_06.py`.
 
-**1. `missing_frames(expected, found)`**: the sorted list of frames, each once, in `expected` that aren't in `found`. Both arguments are lists and may contain duplicates.
+**1. `missing_frames(expected, found)`** returns the frames in `expected` that aren't in `found`.
+
+- Both arguments are lists and may contain duplicates, as in the `set(found)` Think above.
+- The result lists each frame once.
+- The result is sorted.
 
 > Expected: `missing_frames([1001, 1002, 1003, 1004], [1001, 1002, 1004, 1005])` → `[1003]`
 
-**2. `extra_frames(expected, found)`**: the sorted list of frames in `found` that aren't in `expected`.
+**2. `extra_frames(expected, found)`** returns the frames in `found` that aren't in `expected`, with the same rules.
 
 > Expected: `extra_frames([], [9, 7, 7])` → `[7, 9]`
 
@@ -94,3 +98,8 @@ Check your work:
 ```console
 academy test 1 6
 ```
+
+## Further reading
+
+- [Sets](https://docs.python.org/3/tutorial/datastructures.html#sets) (Python tutorial): building sets, `in`, and the operators `-`, `|`, `&`, and `^`.
+- [Learn Python in Y Minutes](https://learnxinyminutes.com/python/) (Learn X in Y Minutes): a one-page tour of Python; its set examples show the same operators in a few lines.

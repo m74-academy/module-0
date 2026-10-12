@@ -4,7 +4,7 @@ icon: lucide/book-open
 
 # Lesson 1.5 — Frame Ranges and List Comprehensions
 
-A sequence that runs from 1001 to 1004 should have four frames. Before you can say one is missing, you need the full list of what *should* be there. Python's `range()` produces the numbers, and a **list comprehension** turns them into names.
+An image sequence that runs from 1001 to 1004 should have four frames. Before you can say one is missing, you need the full list of what *should* be there. Python's `range()` produces the numbers, and a **list comprehension** turns them into names.
 
 ## `range()` stops early
 
@@ -20,9 +20,9 @@ print(range(1001, 1004 + 1))
 range(1001, 1005)
 ```
 
-`range(start, stop)` stops *before* `stop`. Visual-effects ranges include the last frame, so pass `last + 1` as `stop`.
+`range(start, stop)` stops *before* `stop`. Visual-effects ranges include the last frame: a frame number names one picture, so frames 1001 to 1004 are four pictures. Pass `last + 1` as `stop`. That is why the third line prints `range(1001, 1005)`: its stop is `1004 + 1`.
 
-`range()` is not a list: it gives the numbers one at a time. `list()` collects them, which is why the examples put `range()` inside `list()`.
+`range()` is not a list. It stores only its start and stop, and makes each number when a loop or `list()` asks for it. So you can loop over the same range again, or print it, as above. `list()` collects all the numbers, which is why the examples put `range()` inside `list()` to print them.
 
 !!! question "Think"
 
@@ -56,7 +56,7 @@ print(names)
 ['SH010_comp_v002.1001.exr', 'SH010_comp_v002.1002.exr', 'SH010_comp_v002.1003.exr']
 ```
 
-Read it as "a list of *this* for each *item* in *that*". Add `if` at the end to keep only some items:
+`{frame:04d}` pads the frame to four digits, as in [Lesson 1.2](02-f-strings.md#padding-numbers). Read the comprehension as "a list of *this* for each *item* in *that*". Add `if` at the end to keep only some items:
 
 ```python
 files = ["SH010_comp_v002.1001.exr", "notes.txt", "SH010_comp_v002.1002.exr"]
@@ -89,14 +89,14 @@ print([n for n in files if n.endswith(".exr")])
 
 Open `src/chapter_01/lesson_05.py`.
 
-**1. `frame_list(first, last)`**: every frame from `first` to `last`, as a list.
+**1. `frame_list(first, last)`** returns every frame from `first` to `last`, as a list.
 
 - The list includes `last`.
 - If `last` is before `first`, the list is empty.
 
 > Expected: `frame_list(1001, 1004)` → `[1001, 1002, 1003, 1004]`
 
-**2. `expected_names(sequence, first, last, extension)`**: every filename of a sequence, in frame order, frames padded to 4 digits.
+**2. `expected_names(sequence, first, last, extension)`** returns every filename of an image sequence, in frame order, frames padded to 4 digits.
 
 > Expected: `expected_names("SH010_comp_v002", 1001, 1002, ".exr")` → `["SH010_comp_v002.1001.exr", "SH010_comp_v002.1002.exr"]`
 
@@ -105,3 +105,9 @@ Check your work:
 ```console
 academy test 1 5
 ```
+
+## Further reading
+
+- [Ranges](https://docs.python.org/3/library/stdtypes.html#ranges) (Python reference): what a `range` stores, and why it takes the same small memory for any length.
+- [List comprehensions](https://docs.python.org/3/tutorial/datastructures.html#list-comprehensions) (Python tutorial): more examples, including a comprehension with two `for` parts.
+- [Learn Python in Y Minutes](https://learnxinyminutes.com/python/) (Learn X in Y Minutes): a one-page tour of Python; its `range(lower, upper)` examples show the same stop-before rule.
